@@ -17,18 +17,20 @@ You also need to install LaTeX if you want to generate PDF files from KnitR.
 
 ###Getting Started - Clone the RWorkshop GiT Repository:
 
+Use a GUI tool like SourceTree or execute the following commands in a terminal window:
+
 **Phils-MacBook-Pro:Mine pcannata$ pwd**  
-/Users/pcannata/Mine  
-**Phils-MacBook-Pro:Mine pcannata$ git clone https://github.com/pcannata/RWorkshop.git**  
-Cloning into 'RWorkshop'...  
-remote: Counting objects: 19, done.  
-remote: Compressing objects: 100% (12/12), done.  
-remote: Total 19 (delta 3), reused 19 (delta 3)  
-Unpacking objects: 100% (19/19), done.  
-Checking connectivity... done  
-**Phils-MacBook-Pro:Mine pcannata$ ls -a RWorkshop/**  
-.  		.Rprofile.R		00 Doc			03 ggplot		05 KnitR 02  
-..			.git			01 Basic R		04 KnitR 01		RWorkshop.Rproj  
+/Users/pcannata  
+**Phils-MacBook-Pro:Mine pcannata$ git clone https://github.com/pcannata/DataVisualization.git**  
+Phils-MacBook-Pro:~ pcannata$ git clone https://github.com/pcannata/DataVisualization.git
+Cloning into 'DataVisualization'...
+remote: Counting objects: 74, done.
+remote: Compressing objects: 100% (60/60), done.
+remote: Total 74 (delta 6), reused 67 (delta 4)
+Unpacking objects: 100% (74/74), done.
+Checking connectivity... done.
+Phils-MacBook-Pro:~ pcannata$ ls -a DataVisualization/
+.  	..		.git		README.md	RWorkshop
 
 ###Getting Started - Create a New RStudio Project for the code in the cloned repository:
 
@@ -40,15 +42,13 @@ Checking connectivity... done
 
 ![](./NewProject4.png)    
 
-###Getting Started - Create .Rprofile file to load ggplot and gplot libraries when the project is started: 
+###Getting Started - Create a .Rprofile file to load libraries when the project is started: 
 
-![](./Rprofile.png) 
-
-Create an new file named .Rprofile by copying a file, see below 
+Create an new file named .Rprofile by copying the .Rhistory file, see below 
 
 ![](./Rprofile1.png) 
 
-Copy what's in blue above into the new file named .Rprofile as below, 
+Load each of the libraries shown in the image below into RStudio and copy the library call into the .Rprofile file as below, 
 
 ![](./Rprofile2.png) 
 
