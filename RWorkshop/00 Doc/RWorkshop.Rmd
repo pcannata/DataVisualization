@@ -96,10 +96,6 @@ For more on subsetting dataframes see http://www.ats.ucla.edu/stat/r/faq/subset_
 
 See also http://www.rforge.net/RJDBC/, and http://bommaritollc.com/2012/11/connecting-r-to-an-oracle-database-with-rjdbc/
 
-```{r}
-source("../02A RJDBC/ConnectToOracle.R", echo = TRUE)
-```
-
 ###ggplot2
 **ggplot is an R package for data exploration and visualization. It produces production quality graphics and allows you to slice and dice your data in many different ways. ggplot uses a general scheme for data visualization which breaks graphs up into semantic components such as scales and layers. In contrast to other graphics packages, ggplot2 allows the user to add, remove or alter components in a plot at a high level of abstraction.**
 
@@ -174,7 +170,7 @@ install_github( repo = "shinyapps", username="rstudio" )
 shinyapps::setAccountInfo(name='pcannata', token='3ECF447A741004F6A8B7208C9ED778E1', secret='. . . ')**  
 
 ```{r}
-library(shinyapps)
+# library(shinyapps)
 getwd()
 # Uncomment the following line to deploy the app.
 #deployApp("../06Shiny")
