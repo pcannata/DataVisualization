@@ -17,19 +17,18 @@ You also need to install LaTeX if you want to generate PDF files from KnitR.
 
 ###Getting Started - Clone the RWorkshop GiT Repository:
 
-Use a GUI tool like SourceTree or execute the following commands in a terminal window:
+Use a GUI tool like SourceTree to clone the repository or execute the following commands in a terminal window:
 
 **Phils-MacBook-Pro:Mine pcannata$ pwd**  
 /Users/pcannata  
-**Phils-MacBook-Pro:Mine pcannata$ git clone https://github.com/pcannata/DataVisualization.git**  
-Phils-MacBook-Pro:~ pcannata$ git clone https://github.com/pcannata/DataVisualization.git
+**Phils-MacBook-Pro:~ pcannata$ git clone https://github.com/pcannata/DataVisualization.git**  
 Cloning into 'DataVisualization'...
 remote: Counting objects: 74, done.
 remote: Compressing objects: 100% (60/60), done.
 remote: Total 74 (delta 6), reused 67 (delta 4)
 Unpacking objects: 100% (74/74), done.
-Checking connectivity... done.
-Phils-MacBook-Pro:~ pcannata$ ls -a DataVisualization/
+Checking connectivity... done.  
+**Phils-MacBook-Pro:~ pcannata$ ls -a DataVisualization/**  
 .  	..		.git		README.md	RWorkshop
 
 ###Getting Started - Create a New RStudio Project for the code in the cloned repository:
@@ -91,10 +90,8 @@ source("../02 R Dataframes/Dataframes.R", echo = TRUE)
 ```
 For more on subsetting dataframes see http://www.ats.ucla.edu/stat/r/faq/subset_R.htm
 
-###Connecting to Oracle with RJDBC
-**RJDBC is an R package for makeing database connections in R.**
-
-See also http://www.rforge.net/RJDBC/, and http://bommaritollc.com/2012/11/connecting-r-to-an-oracle-database-with-rjdbc/
+###Connecting to Oracle with RestfulReL
+**TBD**
 
 ###ggplot2
 **ggplot is an R package for data exploration and visualization. It produces production quality graphics and allows you to slice and dice your data in many different ways. ggplot uses a general scheme for data visualization which breaks graphs up into semantic components such as scales and layers. In contrast to other graphics packages, ggplot2 allows the user to add, remove or alter components in a plot at a high level of abstraction.**
