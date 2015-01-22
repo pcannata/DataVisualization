@@ -59,7 +59,7 @@ p3
 p4 <- ggplot_func(diamonds, Legend = "clarity", PointColor = c("red", "blue", "green", "yellow", "grey", "black", "purple", "orange"))
 p4
 
-library("grid", lib.loc="/Library/Frameworks/R.framework/Versions/3.0/Resources/library")
+library("grid")
 
 png("4diamonds.png", width = 25, height = 20, units = "in", res = 72)
 grid.newpage()
