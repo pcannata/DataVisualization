@@ -59,6 +59,19 @@ http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/032
 
 http://www.amazon.com/Reproducible-Research-RStudio-Chapman-Series/dp/1466572841/ref=sr_1_1?ie=UTF8&qid=1404612129&sr=8-1&keywords=reproducible+research+with+r
 
+###High Level Overview of Creating an Excel-like Chart in R 
+
+This is something that is easily done in Excel: 
+
+![](./ExcelChart.png) 
+
+How would you do the same thing in R? 
+
+```{r}
+source("../00 Overview/Overview.R", echo = TRUE)
+```
+
+
 ###Basic R Language Constructs
 
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
