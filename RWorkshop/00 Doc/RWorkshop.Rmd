@@ -59,7 +59,7 @@ http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/032
 
 http://www.amazon.com/Reproducible-Research-RStudio-Chapman-Series/dp/1466572841/ref=sr_1_1?ie=UTF8&qid=1404612129&sr=8-1&keywords=reproducible+research+with+r
 
-###High Level Overview of Creating an Excel-like Chart in R 
+###High Level Overview - Creating an Excel-like Chart in R 
 
 This is something that is easily done in Excel: 
 
