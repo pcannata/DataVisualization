@@ -2,6 +2,8 @@
 library("ggplot2")
 "Displaying the top few rows of a dataframe:"
 head(diamonds)
+"Summary of each variable in the dataframe."
+summary(diamonds)
 "Selecting a subset of columns from a dataframe:"
 head(subset(diamonds, select = c(carat, cut)))
 "Selecting a subset of rows from a dataframe:"

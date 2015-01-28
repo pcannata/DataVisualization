@@ -1,6 +1,6 @@
 Title
 ====
-This is an R markdown document.
+This is an R **markdown** document.
 We can represent chunks of code
 ```
 x<-rnorm(100)
