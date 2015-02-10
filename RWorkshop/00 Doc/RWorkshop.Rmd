@@ -43,13 +43,19 @@ Checking connectivity... done.
 
 ###Getting Started - Create a .Rprofile file to load libraries when the project is started: 
 
-Create an new file named .Rprofile by copying the .Rhistory file, see below 
+Create an new file text named .Rprofile.
 
-![](./Rprofile1.png) 
-
-Load each of the libraries shown in the image below into RStudio and copy the library call into the .Rprofile file as below, 
-
-![](./Rprofile2.png) 
+Put the following into .Rprofile  
+require("ggplot2")  
+require("gplots")  
+require("plyr")  
+require("grid")  
+require("RCurl")  
+require("reshape2")  
+require("rstudio")  
+require("tableplot")  
+require(tidyr)  
+require(dplyr)  
 
 
 ###Recommended Books:
@@ -198,7 +204,7 @@ See also https://www.shinyapps.io/ and http://shiny.rstudio.com/articles/shinyap
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
 
 ```{r}
-source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
+# source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
 ```
 http://www.rstudio.com/resources/cheatsheets/
 

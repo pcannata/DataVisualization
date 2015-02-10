@@ -2,7 +2,7 @@ require(tidyr)
 require(dplyr)
 
 tbl_df(diamonds)
-View(diamonds)
+# View(diamonds)
 select(diamonds, cut, clarity)
 diamonds %>% select(cut, clarity)
 tbl_df(diamonds %>% select(cut, clarity))
