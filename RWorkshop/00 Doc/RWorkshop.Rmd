@@ -193,4 +193,13 @@ getwd()
 
 See also https://www.shinyapps.io/ and http://shiny.rstudio.com/articles/shinyapps.html 
 
+###Data Wrangling
+
+See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
+
+```{r}
+source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
+```
+http://www.rstudio.com/resources/cheatsheets/
+
 
