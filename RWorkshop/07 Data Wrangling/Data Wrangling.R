@@ -52,8 +52,7 @@ c(1:10) %>% ntile(4) # bucket edges are rounded
 # Now let's try them in the mutate function
 diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20) %>% arrange(desc(price_percent)) %>% tbl_df
 
-TopBottom20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80)
-ggplot(TopBottom20_diamonds, aes(x = price, y = carat)) + geom_point(aes(color=cut))
+diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80) %>% ggplot(aes(x = price, y = carat)) + geom_point(aes(color=cut))
 
 diamonds %>% mutate(minxy = pmin(x,y)) %>% tbl_df
 diamonds %>% mutate(cummin_x = cummin(x)) %>% tbl_df
