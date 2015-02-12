@@ -2,10 +2,10 @@ require(tidyr)
 require(dplyr)
 
 tbl_df(diamonds)
-# View(diamonds)
+View(diamonds)
 select(diamonds, cut, clarity)
 diamonds %>% select(cut, clarity)
-tbl_df(diamonds %>% select(cut, clarity))
+x <- diamonds %>% select(cut, clarity) %>% tbl_df
 diamonds %>% select(cut, clarity) %>% filter(cut == "Good") %>% tbl_df
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair")) %>% tbl_df
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1") %>% tbl_df
@@ -41,15 +41,29 @@ c(1,1,2,3,4,3,5) %>% between(2,4)
 c(1,1,2,5,4,3,5) %>% cume_dist()
 c(1:5) %>% cume_dist()
 c(1,1:5) %>% cume_dist()
-c(TRUE, TRUE, FALSE, FALSE, TRUE) %>% cumall()
-c(FALSE, TRUE, FALSE, FALSE, TRUE) %>% cumany()
+# c(TRUE, TRUE, FALSE, FALSE, TRUE) %>% cumall()
+# c(FALSE, TRUE, FALSE, FALSE, TRUE) %>% cumany()
 c(1:5) %>% cummean()
 c(1:5) %>% lead() - c(1:5)
-c(1:5) %>% lag() - c(1:5)
+ c(1:5) %>% lag() - c(1:5)
 c(1:10)
 c(1:10) %>% ntile(4) # bucket edges are rounded
 
-# Useful SUmmary functions:
+# Now let's try them in the mutate function
+diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20) %>% arrange(desc(price_percent)) %>% tbl_df
+
+TopBottom20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80)
+ggplot(TopBottom20_diamonds, aes(x = price, y = carat)) + geom_point(aes(color=cut))
+
+diamonds %>% mutate(minxy = pmin(x,y)) %>% tbl_df
+diamonds %>% mutate(cummin_x = cummin(x)) %>% tbl_df
+diamonds %>% mutate(cumsum_x = cumsum(x)) %>% tbl_df
+diamonds %>% mutate(between_x = between(x,4,4.1)) %>% tbl_df
+diamonds %>% mutate(between_x = lead(z)-z) %>% tbl_df
+diamonds %>% mutate(between_x = lag(z)-z) %>% tbl_df
+diamonds %>% mutate(between_x = ntile(z,100)) %>% tbl_df
+
+# Useful Summary functions:
   # min(), max() Minimum and maximum values
   # mean() Mean value
   # median() Median value
@@ -61,7 +75,14 @@ c(1:10) %>% ntile(4) # bucket edges are rounded
   # n() The number of values in a vector
   # n_distinct() The number of distinct values in a vector
 
+diamonds %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
+
+diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
+
+
 # Order By
 # arrange()
 data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x)) %>% tbl_df
 data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x),y) %>% tbl_df
+
+diamonds %>% group_by(cut,color, clarity) %>% summarise(mean_carat = mean(carat)) %>% arrange(mean_carat) %>% ggplot(aes(x=cut, y=mean_carat, color=color)) + geom_point() + facet_wrap(~clarity)
