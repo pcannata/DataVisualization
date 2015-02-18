@@ -208,4 +208,16 @@ See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r
 ```
 http://www.rstudio.com/resources/cheatsheets/
 
+###Joining Data
+
+![](./DiamondsLogicalModel.png)
+
+```{r}
+# source("../09 Joining Data/Joining Data.R", echo = TRUE)
+```
+http://www.rstudio.com/resources/cheatsheets/
+
+
+
+
 

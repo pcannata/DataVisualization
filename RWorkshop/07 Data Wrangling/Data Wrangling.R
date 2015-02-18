@@ -61,9 +61,11 @@ diamonds %>% mutate(minxy = pmin(x,y)) %>% tbl_df
 diamonds %>% mutate(cummin_x = cummin(x)) %>% tbl_df
 diamonds %>% mutate(cumsum_x = cumsum(x)) %>% tbl_df
 diamonds %>% mutate(between_x = between(x,4,4.1)) %>% tbl_df
-diamonds %>% mutate(between_x = lead(z)-z) %>% tbl_df
-diamonds %>% mutate(between_x = lag(z)-z) %>% tbl_df
-diamonds %>% mutate(between_x = ntile(z,100)) %>% tbl_df
+diamonds %>% mutate(lead_z = lead(z)-z) %>% tbl_df
+diamonds %>% mutate(lag_z = lag(z)-z) %>% tbl_df
+diamonds %>% mutate(ntile_z = ntile(z,100)) %>% arrange(desc(ntile_z)) %>% tbl_df
+
+diamonds %>% mutate(ntile_z = ntile(z,100)) %>% group_by(ntile_z) %>% summarise(n=n()) %>% tbl_df
 
 # Useful Summary functions:
   # min(), max() Minimum and maximum values
@@ -80,6 +82,7 @@ diamonds %>% mutate(between_x = ntile(z,100)) %>% tbl_df
 diamonds %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
 
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
+diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% ungroup %>% summarize(sum(n))
 
 # Order By
 # arrange()
