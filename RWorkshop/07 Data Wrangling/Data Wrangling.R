@@ -3,8 +3,8 @@ require(dplyr)
 
 tbl_df(diamonds)
 View(diamonds)
-select(diamonds, cut, clarity)
-diamonds %>% select(cut, clarity)
+select(diamonds, cut, clarity) %>% tbl_df
+diamonds %>% select(cut, clarity) %>% tbl_df
 x <- diamonds %>% select(cut, clarity) %>% tbl_df
 diamonds %>% select(cut, clarity) %>% filter(cut == "Good") %>% tbl_df
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair")) %>% tbl_df
