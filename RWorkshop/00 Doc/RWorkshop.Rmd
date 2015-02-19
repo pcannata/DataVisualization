@@ -222,6 +222,11 @@ http://www.rstudio.com/resources/cheatsheets/
 ```
 http://www.rstudio.com/resources/cheatsheets/
 
+```{r}
+source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
+```
+
+![](./categoricals.png) 
 
 
 
