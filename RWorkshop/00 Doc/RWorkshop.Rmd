@@ -225,7 +225,7 @@ source("../08 eval(parse vs. json/ParseEval vs JSON.R", echo = TRUE)
 ![](./DiamondsLogicalModel.png)
 
 ```{r}
-# source("../09 Joining Data/Joining Data.R", echo = TRUE)
+source("../09 Joining Data/Joining Data.R", echo = TRUE)
 ```
 http://www.rstudio.com/resources/cheatsheets/
 
@@ -236,6 +236,7 @@ source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
 ```
 
 ![](./categoricals.png) 
+![](./categoricals2.png) 
 
 
 
