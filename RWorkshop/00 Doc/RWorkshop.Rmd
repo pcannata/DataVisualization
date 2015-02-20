@@ -234,6 +234,8 @@ http://www.rstudio.com/resources/cheatsheets/
 ```{r}
 source("../10 ListsForIfFunctionsPng/List Indexing.R", echo = TRUE)
 ```
+  
+For more details on [[...]], see http://stackoverflow.com/questions/1169456/in-r-what-is-the-difference-between-the-and-notations-for-accessing-the
 
 ###Lists, For and If Statements, Functions, and generating png Files
 
