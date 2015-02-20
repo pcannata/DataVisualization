@@ -229,6 +229,12 @@ source("../09 Joining Data/Joining Data.R", echo = TRUE)
 ```
 http://www.rstudio.com/resources/cheatsheets/
 
+###Lists Indexing
+
+```{r}
+source("../10 ListsForIfFunctionsPng/List Indexing.R", echo = TRUE)
+```
+
 ###Lists, For and If Statements, Functions, and generating png Files
 
 ```{r}
