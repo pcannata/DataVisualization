@@ -1,11 +1,11 @@
 # for (i in c("cut", "color", "clarity")) {group_by(diamonds, i) %>% summarize(n=n()) %>% tbl_df}
 
+require("tidyr")
+require("dplyr")
+require("jsonlite")
+
 q='Good'
 r <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from diamonds where \\\"cut\\\" = \\\'"q"\\\'"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal',USER='DV_Diamonds',PASS='orcl',MODE='native_mode',MODEL='model',returnDimensions = 'False',returnFor = 'JSON', q=q),verbose = TRUE)))
-
-require(tidyr)
-require(dplyr)
-require("jsonlite")
 
 myplot <- function(df, x) {
   names(df) <- c("x", "n")

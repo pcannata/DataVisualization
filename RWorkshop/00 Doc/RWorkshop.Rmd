@@ -210,8 +210,15 @@ See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r
 
 ```{r}
 source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
+
 ```
-http://www.rstudio.com/resources/cheatsheets/
+http://www.rstudio.com/resources/cheatsheets/ 
+
+###Type of RestfulReL Oracle Cloud Connections
+
+```{r}
+source("../08 eval(parse vs. json/ParseEval vs JSON.R", echo = TRUE)
+```
 
 ###Joining Data
 
@@ -221,6 +228,8 @@ http://www.rstudio.com/resources/cheatsheets/
 # source("../09 Joining Data/Joining Data.R", echo = TRUE)
 ```
 http://www.rstudio.com/resources/cheatsheets/
+
+###Lists, For and If Statements, Functions, and generating png Files
 
 ```{r}
 source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
