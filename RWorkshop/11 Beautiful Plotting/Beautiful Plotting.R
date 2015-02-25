@@ -1,56 +1,56 @@
 #  Table of Contents (Generated using: nl -b a Beautiful\ Plotting.R | grep "[0-9]* *#")
-Line Number: 62 ### Working with the title - page 4 of the Beautiful Plots pdf
-Line Number: 64    # Add a title
-Line Number: 66	  # or
-Line Number: 68	  # Make title bold and add a little space at the baseline (face,vjust)
-Line Number: 70	  # Use a non-traditional font in your title (family)
-Line Number: 73	  # Change spacing in multi-line text (lineheight)
-Line Number: 76	### Working with axes - page 8 of the Beautiful Plots pdf
-Line Number: 77	  # Add x and y axis labels (labs(),xlab())
-Line Number: 79	  # Get rid of axis ticks and tick text (theme(),axis.ticks.y)
-Line Number: 81	  # Change size of and rotate tick text (axis.text.x)
-Line Number: 83	  # Move the labels away from the plot (and add color) (theme(), axis.title.x)
-Line Number: 88	  # Limit an axis to a range (ylim(),scale_x_continuous(), coord_cartesian())
-Line Number: 90	  # or
-Line Number: 92	  # Use a function to alter labels (label=function(x){})
-Line Number: 97	### Working with Legends - page 15 of the Beautiful Plots pdf
-Line Number: 106	  # Turn off the legend title (legend.title)
-Line Number: 108	  # Change the styling of the legend title (legend.title)
-Line Number: 110	  # Change the title of the legend (name), this also splits the legends
-Line Number: 112	  # Change the background boxes in the legend (legend.key)
-Line Number: 115	  # Change the size of the symbols in the legend only (guides(), guide_legend)
-Line Number: 117	  # This is a bad example but it shows how to turn off a legend layer.
-Line Number: 120	  # Manual Legends - page 23 of the Beautiful Plots pdf
-Line Number: 124	### Background Colors - page 27 of the Beautiful Plots pdf
-Line Number: 126	  # Change the panel color (panel.background)
-Line Number: 128	  # Change the grid lines (panel.grid.major)
-Line Number: 132	  # Change the plot background (not the panel) color (plot.background)
-Line Number: 134	### Creating multi-panel plots - page 30 of the Beautiful Plots pdf
-Line Number: 135	  # Changing the plot margin (plot.margin)
-Line Number: 137	### Creating multi-panel plots - page 32 of the Beautiful Plots pdf
-Line Number: 139	  # Allow scales to roam free (scales)
-Line Number: 141	  # Put two (potentially unrelated) plots side by side (pushViewport())
-Line Number: 148	### Working with themes - page 37 of the Beautiful Plots pdf - see also https://github.com/jrnold/ggthemes
-Line Number: 152	  # Creating a custom theme - See page 39 of the Beautiful Plots pdf
-Line Number: 153	### Working with colors - page 41 of the Beautiful Plots pdf
-Line Number: 154	  # Categorical variables: manually select the colors (scale_color_manual())
-Line Number: 155	ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point() + scale_color_manual(values=c("dodgerblue4", "darkolivegreen4", "darkorchid3", "goldenrod1")) # Uncomment this to get an error
-Line Number: 158	  # Categorical variables: try a built-in palette (based on colorbrewer2.org) (scale_color_brewer()):
-Line Number: 160	  # How about using the Tableau colors (but you need the library ggthemes):
-Line Number: 162	  # Color choice with continuous variables (scale_color_gradient(), scale_color_gradient2())
-Line Number: 168	### Working with annotation - page 47 of the Beautiful Plots pdf
-Line Number: 169	  # Add text annotation in the top-right, top-left etc. (annotation_custom() andtextGrob())
-Line Number: 170	  # The grobTreefunction (from grid) creates a grid graphical object and textGrobcreates the text graphical object. The annotation_custom() function comes from ggplot2and is designed to use a grob as input.
-Line Number: 178	### Working with coordinates - page 49 of the Beautiful Plots pdf
-Line Number: 183	### Working with plot types - page 50 of the Beautiful Plots pdf
-Line Number: 184	  # Box plot
-Line Number: 186	  # Alternative to a box plot: plot of points
-Line Number: 193	  # Alternative to a box plot: violin plot perhaps (geom_violin())
-Line Number: 199	  # Add a ribbon to your plot (geom_ribbon())
-Line Number: 201	  # The following are commented out because they take a very long time to run.
-Line Number: 202	  # ggplot(joindf, aes(x=year(SALES_DATE), y=tbl)) + geom_line()
-Line Number: 204	  # ggplot(joindf, aes(x=year(SALES_DATE), y=tbl)) + geom_line() + geom_ribbon(aes(ymin=0,ymax=tbl),fill="lightpink3")
-Line Number: 206	### Working with smooths - page 60 of the Beautiful Plots pdf
+#Line Number: 62 ### Working with the title - page 4 of the Beautiful Plots pdf
+#Line Number: 64    # Add a title
+#Line Number: 66	  # or
+#Line Number: 68	  # Make title bold and add a little space at the baseline (face,vjust)
+#Line Number: 70	  # Use a non-traditional font in your title (family)
+#Line Number: 73	  # Change spacing in multi-line text (lineheight)
+#Line Number: 76	### Working with axes - page 8 of the Beautiful Plots pdf
+#Line Number: 77	  # Add x and y axis labels (labs(),xlab())
+#Line Number: 79	  # Get rid of axis ticks and tick text (theme(),axis.ticks.y)
+#Line Number: 81	  # Change size of and rotate tick text (axis.text.x)
+#Line Number: 83	  # Move the labels away from the plot (and add color) (theme(), axis.title.x)
+#Line Number: 88	  # Limit an axis to a range (ylim(),scale_x_continuous(), coord_cartesian())
+#Line Number: 90	  # or
+#Line Number: 92	  # Use a function to alter labels (label=function(x){})
+#Line Number: 97	### Working with Legends - page 15 of the Beautiful Plots pdf
+#Line Number: 106	  # Turn off the legend title (legend.title)
+#Line Number: 108	  # Change the styling of the legend title (legend.title)
+#Line Number: 110	  # Change the title of the legend (name), this also splits the legends
+#Line Number: 112	  # Change the background boxes in the legend (legend.key)
+#Line Number: 115	  # Change the size of the symbols in the legend only (guides(), guide_legend)
+#Line Number: 117	  # This is a bad example but it shows how to turn off a legend layer.
+#Line Number: 120	  # Manual Legends - page 23 of the Beautiful Plots pdf
+#Line Number: 124	### Background Colors - page 27 of the Beautiful Plots pdf
+#Line Number: 126	  # Change the panel color (panel.background)
+#Line Number: 128	  # Change the grid lines (panel.grid.major)
+#Line Number: 132	  # Change the plot background (not the panel) color (plot.background)
+#Line Number: 134	### Creating multi-panel plots - page 30 of the Beautiful Plots pdf
+#Line Number: 135	  # Changing the plot margin (plot.margin)
+#Line Number: 137	### Creating multi-panel plots - page 32 of the Beautiful Plots pdf
+#Line Number: 139	  # Allow scales to roam free (scales)
+#Line Number: 141	  # Put two (potentially unrelated) plots side by side (pushViewport())
+#Line Number: 148	### Working with themes - page 37 of the Beautiful Plots pdf - see also https://github.com/jrnold/ggthemes
+#Line Number: 152	  # Creating a custom theme - See page 39 of the Beautiful Plots pdf
+#Line Number: 153	### Working with colors - page 41 of the Beautiful Plots pdf
+#Line Number: 154	  # Categorical variables: manually select the colors (scale_color_manual())
+#Line Number: 155	ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point() + scale_color_manual(values=c("dodgerblue4", "darkolivegreen4", "darkorchid3", "goldenrod1")) # Uncomment this to get an error
+#Line Number: 158	  # Categorical variables: try a built-in palette (based on colorbrewer2.org) (scale_color_brewer()):
+#Line Number: 160	  # How about using the Tableau colors (but you need the library ggthemes):
+#Line Number: 162	  # Color choice with continuous variables (scale_color_gradient(), scale_color_gradient2())
+#Line Number: 168	### Working with annotation - page 47 of the Beautiful Plots pdf
+#Line Number: 169	  # Add text annotation in the top-right, top-left etc. (annotation_custom() andtextGrob())
+#Line Number: 170	  # The grobTreefunction (from grid) creates a grid graphical object and textGrobcreates the text graphical object. The annotation_custom() function comes from ggplot2and is designed to use a grob as input.
+#Line Number: 178	### Working with coordinates - page 49 of the Beautiful Plots pdf
+#Line Number: 183	### Working with plot types - page 50 of the Beautiful Plots pdf
+#Line Number: 184	  # Box plot
+#Line Number: 186	  # Alternative to a box plot: plot of points
+#Line Number: 193	  # Alternative to a box plot: violin plot perhaps (geom_violin())
+#Line Number: 199	  # Add a ribbon to your plot (geom_ribbon())
+#Line Number: 201	  # The following are commented out because they take a very long time to run.
+#Line Number: 202	  # ggplot(joindf, aes(x=year(SALES_DATE), y=tbl)) + geom_line()
+#Line Number: 204	  # ggplot(joindf, aes(x=year(SALES_DATE), y=tbl)) + geom_line() + geom_ribbon(aes(ymin=0,ymax=tbl),fill="lightpink3")
+#Line Number: 206	### Working with smooths - page 60 of the Beautiful Plots pdf
 # End Table of Contents
 
 require("tidyr")
@@ -152,7 +152,7 @@ g + theme_economist()+scale_colour_economist()
   # Creating a custom theme - See page 39 of the Beautiful Plots pdf
 ### Working with colors - page 41 of the Beautiful Plots pdf
   # Categorical variables: manually select the colors (scale_color_manual())
-ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point() + scale_color_manual(values=c("dodgerblue4", "darkolivegreen4", "darkorchid3", "goldenrod1")) # Uncomment this to get an error
+  # ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point() + scale_color_manual(values=c("dodgerblue4", "darkolivegreen4", "darkorchid3", "goldenrod1")) # Uncomment this to get an error
 ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point() + 
   scale_color_manual(values=c("dodgerblue4","darkolivegreen4", "darkorchid3", "goldenrod1", "blue","green","yellow","red"))
   # Categorical variables: try a built-in palette (based on colorbrewer2.org) (scale_color_brewer()):

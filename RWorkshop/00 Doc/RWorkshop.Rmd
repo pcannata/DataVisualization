@@ -246,6 +246,13 @@ source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
 ![](./categoricals.png) 
 ![](./categoricals2.png) 
 
+###Beautiful Plotting  
+Based upon http://www.cs.utexas.edu/~cannata/dataVis/Class%20Notes/Beautiful%20plotting%20in%20R_%20A%20ggplot2%20cheatsheet%20_%20Technical%20Tidbits%20From%20Spatial%20Analysis%20&%20Data%20Science.pdf  
+
+```{r}
+source("../11 Beautiful Plotting/Beautiful Plotting.R", echo = TRUE)
+```
+
 
 
 
