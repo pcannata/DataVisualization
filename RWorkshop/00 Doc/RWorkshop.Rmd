@@ -253,6 +253,14 @@ Based upon http://www.cs.utexas.edu/~cannata/dataVis/Class%20Notes/Beautiful%20p
 source("../11 Beautiful Plotting/Beautiful Plotting.R", echo = TRUE)
 ```
 
+###Bokey  
+Based upon http://hafen.github.io/rbokeh/  
+
+```{r}
+source("../12 Bokeh/Bokeh.R", echo = TRUE)
+```
+
+
 
 
 

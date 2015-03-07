@@ -92,11 +92,11 @@ g + scale_y_continuous(limits=c(0,10000))
   # Use a function to alter labels (label=function(x){})
 g + scale_y_continuous(label=function(x){return(paste("My cut number is ",x))}, limits=c(0,10000))
 
-r <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select \\\"clarity\\\", \\\""i"\\\", count(*) n from DIAMONDS group by \\\"clarity\\\", \\\""i"\\\" "'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal',USER='DV_Diamonds',PASS='orcl',MODE='native_mode',MODEL='model',returnDimensions = 'False',returnFor = 'JSON', i=i),verbose = TRUE)))
+r <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select \\\"clarity\\\", \\\""x"\\\", count(*) n from DIAMONDS group by \\\"clarity\\\", \\\""x"\\\" "'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal',USER='DV_Diamonds',PASS='orcl',MODE='native_mode',MODEL='model',returnDimensions = 'False',returnFor = 'JSON', x=i),verbose = TRUE)))
 
 ### Working with Legends - page 15 of the Beautiful Plots pdf
 names(r) <- c("legend", "x", "n")
-g <- ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point()
+g <- ggplot(r, aes(x=x, y=n, size=legend, color=legend)) + geom_point(); g
 g <- g + labs(title='Cut') +
   labs(x="Cut", y=paste("Cut", "Numbers")) + 
   theme(
