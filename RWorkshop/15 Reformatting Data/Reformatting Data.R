@@ -29,7 +29,7 @@ for(d in dimensions) {
   df[d] <- data.frame(lapply(df[d], gsub, pattern=":",replacement= ";"))
 }
 
-# The following is an example of dealing with special cases.
+# The following is an example of dealing with special cases like making state abbreviations be all upper case.
 # df["State"] <- data.frame(lapply(df["State"], toupper))
 
 # Get rid of all characters in measures except for numbers, the - sign, and period.
