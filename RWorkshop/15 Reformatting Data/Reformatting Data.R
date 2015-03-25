@@ -33,10 +33,20 @@ for(d in dimensions) {
 # df["State"] <- data.frame(lapply(df["State"], toupper))
 
 # Get rid of all characters in measures except for numbers, the - sign, and period.
-measures
 for(m in measures) {
   df[m] <- data.frame(lapply(df[m], gsub, pattern="[^--.,0-9]",replacement= ""))
 }
 
-# head(df)
 write.csv(df, paste(gsub(".csv", "", file_path), ".reformatted.csv", sep=""), row.names=FALSE)
+
+tableName <- gsub(" +", "_", gsub("[^A-z, 0-9, ]", "", gsub(".csv", "", file_path)))
+sql <- paste("CREATE TABLE", tableName, "(\n-- Change table_name to the table name you want.\n")
+for(d in dimensions) {
+   sql <- paste(sql, paste(d, "varchar(4000),\n"))
+}
+for(m in measures) {
+  if(m != tail(measures, n=1)) sql <- paste(sql, paste(m, "number(38,4),\n"))
+  else sql <- paste(sql, paste(m, "number(38,4)\n"))
+}
+sql <- paste(sql, ");")
+cat(sql)
