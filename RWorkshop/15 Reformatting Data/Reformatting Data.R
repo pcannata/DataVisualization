@@ -1,5 +1,4 @@
 setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/15 Reformatting Data")
-
 # file_path <- "Sample - Superstore - English (Extract).csv"
 # measures <- c("Customer_ID", "Discount", "Number_of_Records", "Order_ID", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price" )
 
@@ -28,6 +27,12 @@ for(d in dimensions) {
   # Change : to ; in dimensions.
   df[d] <- data.frame(lapply(df[d], gsub, pattern=":",replacement= ";"))
 }
+
+library(lubridate)
+# Fix date columns, this needs to be done by hand because | needs to be correct.
+#                                                        \_/
+df$Order_Date <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Order_Date), tz="UTC")))
+df$Ship_Date  <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Ship_Date),  tz="UTC")))
 
 # The following is an example of dealing with special cases like making state abbreviations be all upper case.
 # df["State"] <- data.frame(lapply(df["State"], toupper))
