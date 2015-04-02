@@ -10,7 +10,7 @@ df <- read.csv(file_path, stringsAsFactors = FALSE)
 # Replace "." (i.e., period) with "_" in the column names.
 names(df) <- gsub("\\.+", "_", names(df))
 
-# str(df) # Uncomment this to get column types to use for getting the list of measures.
+str(df) # Uncomment this to get column types to use for getting the list of measures.
 
 # Get rid of special characters in each column.
 # Google ASCII Table to understand the following:
@@ -47,7 +47,7 @@ write.csv(df, paste(gsub(".csv", "", file_path), ".reformatted.csv", sep=""), ro
 tableName <- gsub(" +", "_", gsub("[^A-z, 0-9, ]", "", gsub(".csv", "", file_path)))
 sql <- paste("CREATE TABLE", tableName, "(\n-- Change table_name to the table name you want.\n")
 for(d in dimensions) {
-   sql <- paste(sql, paste(d, "varchar(4000),\n"))
+   sql <- paste(sql, paste(d, "varchar2(4000),\n"))
 }
 for(m in measures) {
   if(m != tail(measures, n=1)) sql <- paste(sql, paste(m, "number(38,4),\n"))
