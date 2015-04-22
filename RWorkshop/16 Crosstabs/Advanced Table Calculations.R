@@ -1,6 +1,6 @@
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", '129.152.144.84:5001/rest/native/?query=
 "select row_id, department, category, sales, EXTRACT(YEAR FROM TO_DATE(order_date, \\\'yyyy-mm-dd\\\')) year
-from Adv_Xtabs_Superstore_Sub_Excel order by 2"
+from AdvTblCalcs order by 2"
 ')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_Tableau', PASS='orcl', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); tbl_df(df)
 
 sdf <- spread(df, YEAR, SALES) %>% select(2,3,4,5,6,7) %>% group_by(DEPARTMENT, CATEGORY) %>% arrange(DEPARTMENT)
@@ -11,14 +11,14 @@ df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", '129.152.144.84:5001/
                 from Adv_Xtabs_Superstore_Sub_Excel)
 PIVOT (SUM(sales) AS sum_sales FOR (year) IN (2010, 2011, 2012, 2013))
 order by 1"
-')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_Tableau', PASS='orcl', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); df
+')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_Tableau', PASS='orcl', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); tbl_df(df)
 
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", '129.152.144.84:5001/rest/native/?query=
 "select * from (select department, category, sales, EXTRACT(YEAR FROM TO_DATE(order_date, \\\'yyyy-mm-dd\\\')) year
                from Adv_Xtabs_Superstore_Sub_Excel)
 PIVOT (avg(sales) AS avg_sales FOR (year) IN (2010, 2011, 2012, 2013))
 order by 1"
-')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_Tableau', PASS='orcl', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); df
+')),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDB1.usuniversi01134.oraclecloud.internal', USER='DV_Tableau', PASS='orcl', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); tbl_df(df)
 
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", '129.152.144.84:5001/rest/native/?query=
 "select * from (select department, category, sales, EXTRACT(YEAR FROM TO_DATE(order_date, \\\'yyyy-mm-dd\\\')) year

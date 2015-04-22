@@ -9,7 +9,7 @@ setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/15 Reformatting Dat
 #measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Number_of_Records", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price", "Discount", "Gross_Profit_Ratio")
 
 file_path <- "April16AdvTblCalc.csv"
-measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Number_of_Records", "Order_Quantity" )
+measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Number_of_Records", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price", "Discount", "Gross_Profit_Ratio" )
 
 df <- read.csv(file_path, stringsAsFactors = FALSE)
 
