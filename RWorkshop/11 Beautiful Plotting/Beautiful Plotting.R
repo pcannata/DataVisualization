@@ -68,7 +68,7 @@ g + labs(title='Cut')
   # Make title bold and add a little space at the baseline (face,vjust)
 g <- g + theme(plot.title=element_text(size=20, face="bold", vjust=2)); g
   # Use a non-traditional font in your title (family)
-library(extrafont)
+require(extrafont)
 g <- g + theme(plot.title=element_text(size=30, face="bold", vjust=1, family="Bauhaus93")); g
   # Change spacing in multi-line text (lineheight)
 g <- g + labs(title='This is a longer\ntitle than expected'); g

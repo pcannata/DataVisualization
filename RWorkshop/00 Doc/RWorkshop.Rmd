@@ -51,16 +51,19 @@ Checking connectivity... done.
 Create an new file text named .Rprofile.
 
 Put the following into .Rprofile  
-require("ggplot2")  
-require("gplots")  
-require("plyr")  
-require("grid")  
-require("RCurl")  
-require("reshape2")  
-require("rstudio")  
-require("tableplot")  
-require(tidyr)  
-require(dplyr)  
+require("ggplot2")
+require("ggthemes")
+require("gplots")
+require("grid")
+require("RCurl")
+require("reshape2")
+require("rstudio")
+require("tableplot")
+require("tidyr")
+require("dplyr")
+require("jsonlite")
+require("extrafont")
+require("lubridate") 
 
 
 ###Recommended Books:
@@ -257,7 +260,7 @@ source("../11 Beautiful Plotting/Beautiful Plotting.R", echo = TRUE)
 Based upon http://hafen.github.io/rbokeh/  
 
 ```{r}
-source("../12 Bokeh/Bokeh.R", echo = TRUE)
+# source("../12 Bokeh/Bokeh.R", echo = TRUE)
 ```
 
 

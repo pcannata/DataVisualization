@@ -11,6 +11,9 @@ setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/15 Reformatting Dat
 file_path <- "April16AdvTblCalc.csv"
 measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Number_of_Records", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price", "Discount", "Gross_Profit_Ratio" )
 
+# Take a look at read.table also with sep=",", header=TRUE, quote="", na.strings=?
+# Also, xlsx package - read.xlsx("file", sheetIndex=1). Also write.xlsx and XLConnect and XLConnect vignette package.
+# Read XML XML package:xmlTreeParse - rootNode <- xmlRoot(doc); xmlNames(rootNode); rootNode[[1]]; rootNode[[1][1]]; xmlSApply(rootNode, ?); XPath - see www.stat.berkeley.edu/~statcur/Workshop2/Presentations/XML.pdf. Also htmlTreeParse(URL, useInternal=TRUE); See the tutorials for teh XML Package
 df <- read.csv(file_path, stringsAsFactors = FALSE)
 
 # Replace "." (i.e., period) with "_" in the column names.
