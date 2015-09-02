@@ -6,8 +6,8 @@ y
 y1
 df <- data.frame(x, y, y1) # This creates an R Data Frame from the three vectors
 df
-library(reshape2)
+require(reshape2)
 mdf <- melt(df, id.vars = "x", measure.vars = c("y", "y1"))
 mdf
-library(ggplot2)
-ggplot(mdf, aes(x=x, y=value, color=variable)) + geom_line()
+require(ggplot2)
+ggplot(mdf, aes(x=x, y=value, legend=variable)) + geom_line()

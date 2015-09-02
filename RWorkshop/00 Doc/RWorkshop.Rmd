@@ -51,29 +51,30 @@ Checking connectivity... done.
 Create an new file text named .Rprofile.
 
 Put the following into .Rprofile  
-require("ggplot2")
-require("ggthemes")
-require("gplots")
-require("grid")
-require("RCurl")
-require("reshape2")
-require("rstudio")
-require("tableplot")
-require("tidyr")
-require("dplyr")
-require("jsonlite")
-require("extrafont")
-require("lubridate") 
+require("ggplot2") 
+require("ggthemes") 
+require("gplots") 
+require("grid") 
+require("RCurl") 
+require("reshape2") 
+require("rstudio") 
+require("tableplot") 
+require("tidyr") 
+require("dplyr") 
+require("jsonlite") 
+require("extrafont") 
+require("lubridate")  
 
+##Be sure to put a newline after the last require statement. 
 
 ###Recommended Books:
 
-![](./RforEveryone.png) ![](./ReproducibleResearch.png)  
-http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=sr_1_1?ie=UTF8&qid=1404611818&sr=8-1&keywords=R+for+everyone
+![](./RforEveryone.jpeg) ![](./RRR.png)  
+http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=sr_1_1?ie=UTF8&qid=1404611818&sr=8-1&keywords=R+for+everyone 
 
-http://www.amazon.com/Reproducible-Research-RStudio-Chapman-Series/dp/1466572841/ref=sr_1_1?ie=UTF8&qid=1404612129&sr=8-1&keywords=reproducible+research+with+r
+http://www.amazon.com/Reproducible-Research-Studio-Edition-Chapman/dp/1498715370/ref=dp_ob_title_bk 
 
-###High Level Overview - Creating an Excel-like Chart in R 
+###High Level Overview - Creating an Excel-like Chart in R - see the 00 Overview Folder in the DrCannata/Rworkshop Repository  
 
 This is something that is easily done in Excel: 
 
@@ -86,7 +87,7 @@ source("../00 Overview/Overview.R", echo = TRUE)
 ```
 
 
-###Basic R Language Constructs
+###Basic R Language Constructs - see the 01 Basic R Folder in the DrCannata/Rworkshop Repository  
 
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
 
@@ -94,7 +95,7 @@ See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r
 source("../01 Basic R/Basic.R", echo = TRUE)
 ```
 
-###R Dataframes
+###R Dataframes - see the 02 R Dataframes Folder in the DrCannata/Rworkshop Repository  
 
 **A data frame is used for storing data tables. It is a list of vectors of equal length. For example, the following variable df is a data frame containing three vectors n, s, b.**
 
