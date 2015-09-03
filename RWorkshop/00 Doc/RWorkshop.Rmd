@@ -86,14 +86,7 @@ How would you do the same thing in R?
 source("../00 Overview/Overview.R", echo = TRUE)
 ```
 
-
-###Basic R Language Constructs - see the 01 Basic R Folder in the DrCannata/Rworkshop Repository  
-
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
-
-```{r}
-source("../01 Basic R/Basic.R", echo = TRUE)
-```
 
 ###R Dataframes - see the 02 R Dataframes Folder in the DrCannata/Rworkshop Repository  
 
@@ -114,14 +107,14 @@ See also http://www.r-tutor.com/r-introduction/data-frame
 Many R packages come with demo dataframes. The ggplot package comes with a demo dataframe called diamonds which we will use for this workshop.
 
 ```{r}
-source("../02 R Dataframes/Dataframes.R", echo = TRUE)
+source("../01 R Dataframes/Dataframes.R", echo = TRUE)
 ```
 For more on subsetting dataframes see http://www.ats.ucla.edu/stat/r/faq/subset_R.htm
 
 ###Connecting to Oracle with RestfulReL
 
 ```{r}
-source("../02 RestfulReL/Access Oracle Database.R", echo = TRUE)
+source("../02 RESTful Data Access/Access Oracle Database.R", echo = TRUE)
 ```
 
 ###ggplot2
