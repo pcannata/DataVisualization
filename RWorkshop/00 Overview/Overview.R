@@ -10,4 +10,4 @@ require(reshape2)
 mdf <- melt(df, id.vars = "x", measure.vars = c("y", "y1"))
 mdf
 require(ggplot2)
-ggplot(mdf, aes(x=x, y=value, legend=variable)) + geom_line()
+ggplot(mdf, aes(x=x, y=value, color=variable)) + geom_line()
