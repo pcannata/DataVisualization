@@ -128,7 +128,7 @@ plot ::= [coord](http://sape.inf.usi.ch/quick-reference/ggplot2/coord)  [scale+]
 layer ::= data [mapping](http://www.cs.utexas.edu/~cannata/dataVis/R%20Cheat%20Sheets/aes.txt) [stat](http://sape.inf.usi.ch/quick-reference/ggplot2/stat) [geom](http://sape.inf.usi.ch/quick-reference/ggplot2/geom) [position?](http://sape.inf.usi.ch/quick-reference/ggplot2/position)  
 
 ```{r}
-source("../03 Grammar of Graphics with R & ggplot2/Plots.R", echo = TRUE)
+source("../03 Grammar of Graphics with R & ggplot2/Grammar Examples.R", echo = TRUE)
 ```
 
 **The Chapter 7 of "R for Everyone" has many more examples of ggplots.**
