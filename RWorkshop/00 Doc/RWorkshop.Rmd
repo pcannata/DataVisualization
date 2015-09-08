@@ -74,7 +74,7 @@ http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/032
 
 http://www.amazon.com/Reproducible-Research-Studio-Edition-Chapman/dp/1498715370/ref=dp_ob_title_bk 
 
-###High Level Overview - Creating an Excel-like Chart in R - see the 00 Overview Folder in the DrCannata/Rworkshop Repository  
+###00 High Level Overview - Creating an Excel-like Chart in R - see the 00 Overview Folder in the DrCannata/Rworkshop Repository  
 
 This is something that is easily done in Excel: 
 
@@ -88,7 +88,7 @@ source("../00 Overview/Overview.R", echo = TRUE)
 
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
 
-###R Dataframes - see the 02 R Dataframes Folder in the DrCannata/Rworkshop Repository  
+###01 R Dataframes - see the 02 R Dataframes Folder in the DrCannata/Rworkshop Repository  
 
 **A data frame is used for storing data tables. It is a list of vectors of equal length. For example, the following variable df is a data frame containing three vectors n, s, b.**
 
@@ -111,19 +111,24 @@ source("../01 R Dataframes/Dataframes.R", echo = TRUE)
 ```
 For more on subsetting dataframes see http://www.ats.ucla.edu/stat/r/faq/subset_R.htm
 
-###Connecting to Oracle with RestfulReL
+###02 RESTful Data Access
 
 ```{r}
 source("../02 RESTful Data Access/Access Oracle Database.R", echo = TRUE)
 ```
 
-###ggplot2
+###03 Grammar of Graphics with R & ggplot2
 **ggplot is an R package for data exploration and visualization. It produces production quality graphics and allows you to slice and dice your data in many different ways. ggplot uses a general scheme for data visualization which breaks graphs up into semantic components such as scales and layers. In contrast to other graphics packages, ggplot2 allows the user to add, remove or alter components in a plot at a high level of abstraction.**
 
-See also http://ggplot2.org/, http://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf, and https://groups.google.com/forum/#!forum/ggplot2
+See also http://ggplot2.org/, http://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf, and https://groups.google.com/forum/#!forum/ggplot2 
+
+###Grammar of Graphics 
+
+plot ::= [coord](http://sape.inf.usi.ch/quick-reference/ggplot2/coord)  [scale+](http://sape.inf.usi.ch/quick-reference/ggplot2/scale) [facet?](http://sape.inf.usi.ch/quick-reference/ggplot2/facet)   [label?](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf)  [theme?](http://docs.ggplot2.org/current/theme.html) layer+  
+layer ::= data [mapping](http://www.cs.utexas.edu/~cannata/dataVis/R%20Cheat%20Sheets/aes.txt) [stat](http://sape.inf.usi.ch/quick-reference/ggplot2/stat) [geom](http://sape.inf.usi.ch/quick-reference/ggplot2/geom) [position?](http://sape.inf.usi.ch/quick-reference/ggplot2/position)  
 
 ```{r}
-source("../03 ggplot/Plots.R", echo = TRUE)
+source("../03 Grammar of Graphics with R & ggplot2/Plots.R", echo = TRUE)
 ```
 
 **The Chapter 7 of "R for Everyone" has many more examples of ggplots.**
@@ -131,7 +136,7 @@ source("../03 ggplot/Plots.R", echo = TRUE)
 ###ggplot2 and functions
 
 ```{r}
-source("../03 ggplot/plotFunction.R", echo = TRUE)
+# source("../03 ggplot/plotFunction.R", echo = TRUE)
 ```
 
 **You should now be able to open RWorkshop/00 Doc/4diamonds.png. It should look like the following plot.**
@@ -206,7 +211,7 @@ See also https://www.shinyapps.io/ and http://shiny.rstudio.com/articles/shinyap
 See also http://cran.r-project.org/doc/manuals/r-devel/R-lang.html, http://www.r-tutor.com/r-introduction, and http://www.cookbook-r.com/
 
 ```{r}
-source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
+# source("../07 Data Wrangling/Data Wrangling.R", echo = TRUE)
 
 ```
 http://www.rstudio.com/resources/cheatsheets/ 
@@ -214,7 +219,7 @@ http://www.rstudio.com/resources/cheatsheets/
 ###Type of RestfulReL Oracle Cloud Connections
 
 ```{r}
-source("../08 eval(parse vs. json/ParseEval vs JSON.R", echo = TRUE)
+# source("../08 eval(parse vs. json/ParseEval vs JSON.R", echo = TRUE)
 ```
 
 ###Joining Data
@@ -222,14 +227,14 @@ source("../08 eval(parse vs. json/ParseEval vs JSON.R", echo = TRUE)
 ![](./DiamondsLogicalModel.png)
 
 ```{r}
-source("../09 Joining Data/Joining Data.R", echo = TRUE)
+# source("../09 Joining Data/Joining Data.R", echo = TRUE)
 ```
 http://www.rstudio.com/resources/cheatsheets/
 
 ###Lists Indexing
 
 ```{r}
-source("../10 ListsForIfFunctionsPng/List Indexing.R", echo = TRUE)
+# source("../10 ListsForIfFunctionsPng/List Indexing.R", echo = TRUE)
 ```
   
 For more details on [[...]], see http://stackoverflow.com/questions/1169456/in-r-what-is-the-difference-between-the-and-notations-for-accessing-the
@@ -237,7 +242,7 @@ For more details on [[...]], see http://stackoverflow.com/questions/1169456/in-r
 ###Lists, For and If Statements, Functions, and generating png Files
 
 ```{r}
-source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
+# source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
 ```
 
 ![](./categoricals.png) 
@@ -247,7 +252,7 @@ source("../10 ListsForIfFunctionsPng/ListsForIfFunctionsPng.R", echo = TRUE)
 Based upon http://www.cs.utexas.edu/~cannata/dataVis/Class%20Notes/Beautiful%20plotting%20in%20R_%20A%20ggplot2%20cheatsheet%20_%20Technical%20Tidbits%20From%20Spatial%20Analysis%20&%20Data%20Science.pdf  
 
 ```{r}
-source("../11 Beautiful Plotting/Beautiful Plotting.R", echo = TRUE)
+# source("../11 Beautiful Plotting/Beautiful Plotting.R", echo = TRUE)
 ```
 
 ###Bokey  
