@@ -1,4 +1,5 @@
 require(extrafont)
+require(ggplot2)
 ggplot() + 
 coord_cartesian() + 
 #scale_x_continuous() +
@@ -8,7 +9,7 @@ scale_color_hue() +
 #facet_wrap(~cut) +
 facet_grid(clarity~cut) +
 labs(title='Diamonds') +
-labs(x="Cut", y=paste("Cut", "Numbers")) +
+labs(x="Cut", y="Price") +
 theme_grey() +
 theme(plot.background = element_rect(fill="green", colour=NA)) +
 theme(plot.title=element_text(size=30, face="bold", vjust=1, family="Bauhaus93")) +
@@ -33,7 +34,7 @@ layer(data=diamonds,
   stat="boxplot", 
   stat_params=list(), 
   geom="boxplot",
-  geom_params=list(color="red", fill="red", alpha=0.5), 
+  geom_params=list(color="red", fill="red", alpha=0), 
   position=position_identity()
 ) + layer(
   data=diamonds,
