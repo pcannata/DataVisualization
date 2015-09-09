@@ -6,8 +6,8 @@ coord_cartesian() +
 scale_x_discrete() +
 scale_y_continuous() +
 scale_color_hue() +
-#facet_wrap(~cut) +
-facet_grid(clarity~cut) +
+facet_wrap(~cut) +
+#facet_grid(clarity~cut, labeller=label_both) +
 labs(title='Diamonds') +
 labs(x="Cut", y="Price") +
 theme_grey() +
