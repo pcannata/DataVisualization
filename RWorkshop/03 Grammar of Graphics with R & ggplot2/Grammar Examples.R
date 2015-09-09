@@ -1,5 +1,8 @@
 require(extrafont)
 require(ggplot2)
+
+options(java.parameters="-Xmx2g")
+
 ggplot() + 
 coord_cartesian() + 
 #scale_x_continuous() +
