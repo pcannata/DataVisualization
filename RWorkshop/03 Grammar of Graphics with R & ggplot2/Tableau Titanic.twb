@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<workbook source-platform='mac' version='9.0' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <!-- build 9000.15.0506.1800                                -->
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Custom SQL Query (129.152.144.84)' inline='true' name='oracle.42257.420536967600' version='9.0'>
+      <connection authentication='RDBMS' class='oracle' port='1521' server='129.152.144.84' service='PDBF15DV.usuniversi01134.oraclecloud.internal' username='cs329e_UTEid'>
+        <relation name='Custom SQL Query' type='text'>select * from titanic</relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>PASSENGERID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PASSENGERID]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>PASSENGERID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SURVIVED</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SURVIVED]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>SURVIVED</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PCLASS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PCLASS]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>PCLASS</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[NAME]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>NAME</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SEX</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SEX]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>SEX</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>6</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AGE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AGE]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>AGE</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SIBSP</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SIBSP]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>SIBSP</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PARCH</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PARCH]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>PARCH</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TICKET</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[TICKET]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>TICKET</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FARE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[FARE]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>FARE</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CABIN</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CABIN]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>CABIN</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EMBARKED</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[EMBARKED]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>EMBARKED</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=873,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='fare jitter' datatype='integer' name='[Calculation_3900910101611716]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='Index() %25'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Custom SQL Query (129.152.144.84)' name='oracle.42257.420536967600' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.42257.420536967600'>
+            <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative'>
+            </column>
+            <column datatype='string' name='[SEX]' role='dimension' type='nominal'>
+            </column>
+            <column datatype='string' name='[SURVIVED]' role='dimension' type='nominal'>
+            </column>
+            <column-instance column='[SEX]' derivation='None' name='[none:SEX:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SURVIVED]' derivation='None' name='[none:SURVIVED:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FARE]' derivation='Sum' name='[sum:FARE:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[oracle.42257.420536967600].[none:SEX:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.14193369448184967' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[oracle.42257.420536967600].[sum:FARE:qk]</rows>
+        <cols>[oracle.42257.420536967600].[none:SURVIVED:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[oracle.42257.420536967600].[none:SEX:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.42257.420536967600].[none:FARE:nk]</field>
+          <field>[oracle.42257.420536967600].[none:SEX:nk]</field>
+          <field>[oracle.42257.420536967600].[none:SURVIVED:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAACXBIWXMAAAsTAAALEwEAmpwY
+      AAAMOElEQVR4nO3dy29c1QEG8HPuc+487fF4PHZsY8fYJORJEghBATWogkUBBVR1iZC67R9Q
+      2LOgCxZsKiqqSLS0EQtQhAC1oUBASXkkaRQHx8STGMeJx/bYY3s8j/s+XRgZG+FJmONjey7f
+      b3EjRdaZ48mXc8+950UZYwSgXtJmVwAaGwIEXBAg4KJsdgVgfXiOlc1mW9u7GPMT0dDiYik3
+      OR0Kx+NRI9WSnJ2btRYWMz0984W5UrFQqtotranZ/Ey6oyvVFOP5XIpOdDCMXfny4o2Ftky8
+      MLfw6KGdX3x1cc7S2UIu3tp6+LFjX505S66fH/jdH65dODs/cbNv70FmzdKm7slr1544/oyh
+      1H8jwi0sINRworM9eXPsluczq1pmlHq+XXK1x44ceP/NN+898NCOAw9e+Nc/Uj27VUWNRKOy
+      JDW3pKKG6vE1ILiFBURTSyo7Prln/4OKNT80Mnvo4OGqpyrmrCkn9zzySH97oujfvzPadt99
+      ncpC/1xhJpHsuD0y1DGwO6JyNSK4hQGXelqgUqnk+/66VwUaUT0B8n0/Ho+ve1WgEaETDVwQ
+      IOCCAAEXBAi4IEDABQECLggQcEGAgAsCBFxqvIlmY9dHmB4LS66rRlW3bMlGZ7pl46oGjWDN
+      ADG38tF/Pj7w8JGhW7N+tUSNMLG9juNPosmCldbMg+d6Dx899t3QoKKGNNmXFV1TqWXbxWLR
+      dd2NrCJsZWu2QLJmWIszOx/6FankbXlviC1WWLuhaYamFYvFjawibGX1zAcqFosYjYcl6NIA
+      FwQIuCBAwAUBAi4IEHBBgIALAgRcECDgggABFwQIuCBAwKXWytSF6bHxolyZHPGNlOouVkjk
+      0cP7Nqxm0BDWDJDnVD775Ey4d9/8xHSs2ZZoXLFnTcdxLcvzvI2sImxlawbIMe1wJDI5OdXd
+      ns5Pzkia7bmSKsuqYSBAsKzWdA7me67PXMtkkioR1ydy2AgRTOeAFWr1gagkqxJRlSghhBB9
+      YyoEjQVPYcAFAQIuCBBwQYCACwIEXBAg4IIAARcECLggQMAFAQIutYYyXLNcKDt2Me/oCd1Z
+      rMqRvs7MhtUMGkKNAPmf/fuUnbyXlUxSHmLhhGTbPZ0ZeePqBg1gzQBVCtP5OdP1plKRZiYz
+      IklUZo5tl00T27vAsjWnczDGfLuSLzmV2duOktD9xSqJ7Ly3m2A6B6yA7V2AC57CgAsCBFwQ
+      IOCCAAEXBAi4IEDABQECLggQcEGAgAsCBFwQIOCy5mi871bPfPJJJN1jz96UYu3UnKuQyOOP
+      Pkg3snaw5a0ZICppOwb6z3w5bKiOZo6rekq1S6ZtO5jOASus3QLZ5ctXvlU1Go0ZhdmSYuVs
+      T9NxWg+stvZ0DsY835ckiTGfEEoJY4RKkkQwnQNWWHtKK6WyLC/9+f1fbEyNoKHgKQy4IEDA
+      BQECLggQcEGAgAsCBFwQIOCCAAEXBAi4IEDApcbuHKxaKctqiHkOozJlnk9lQ9c2rmrQCGqM
+      xle+PPd50ZGoZbuepCi+42nHn3sSTRastHYeZG2g/77q3FwklkmoXijSmjQUy7aLxSLmA8Gy
+      tW9hvjMyMtI1sEuyC3a4M0rLFb/JwHwgWA3buwAXdGmACwIEXBAg4IIAARcECLisCpDjOL7v
+      O46Dc5nhLq16D3T58mVd11VVbW1tTSaTm1UnaCCrAlStVsfHx1VVTafTm1UhWF+MsSuzV9JG
+      ui3SJqL8VQHq6upSFIUxpus45DsgRoujL37+Ylu47Y0n3qB0/df2reoD5fN5z/M6OjoMw1j3
+      T4JNEdfiCS3Rm+gVVP6qoYxLly7lcjlFUY4ePVojQxjKaCxlp6zLuiLVOpmpbqsKjcfjiUQi
+      m83Ksuw71fHcjG06EnXTmY7JqWnmsv4dfVjg3HAiakRc4asC1NTUNDIysvQMTyVV9qvXbk/S
+      8sLQ1W9C4XbNqXRt78L2Lo3F871T10/1Jnr3t+4X3geanJzctm3bsWPHFEVxzOK7773fHE+E
+      DMX1ZMvMz9hOSNPi8biiCGkMQYSJ8sTpsdMnrpwQVP6qPtCnn346Pz/f2dm5d+9eTft+9irz
+      fUIpIYwQuhRh9IEaiOd772bf3Z7Y/kD6AREt0KoAWZZl2zYhJBKJLG0F9JMQIFi26mak6zre
+      AMHPgsFU4IIABRxjbGh2KF/JCyofAQq4XDn32sXXXvn6lTomv98NBCjgmkJNJafUHesWVD4C
+      FHCz1dm4Fs/OZwWVj1eCAZcJZ/an9w80DwgqHwEKOEVSDmcOpyNpQds04xYWcLly7vXLr796
+      /lUipA+NFijokqFkT6Knv7lfUPk1ljazwsyMYkSpY3qKrni2K6lNsQjBUEaj8XxPopKIgTBS
+      owXyzNLwt9dy+Rld1jzbkzXZc6Wnn8X2Lo1HlmRxha8ZIEkPK9Ts7u1ZyJvEn/RDScWpWDju
+      CVZbM0BOdTFfqLTF9Jamip3sC5FS2W/D9i7wI9jeBbigSwNcECDgggABFwQIuCBAwAUBAi4I
+      EHBBgIALAgRcECDgggAFHGMsO58tmAVB5deaUDY9PkajydyNbywlHqVmhUYP7hE1tRYEmS1N
+      fPfP345uO/Drp/8qYkpQrfPCrg1dau5/YOjqtbau7jlLke2CfX8fc13f99e9HiBI00Ju18JM
+      szcoqPwaAaLb7xuY8/y+nTtzo6MslKCuv7RJBzQQpX1f5rE/0sxuQeXXms7hWKZHpNL8jC+H
+      VWrZRG9raSKYzgEr1OoDqXpIJSTU1rFhtQERGGOEEipmXQ+ewgLO9d0TV06cvX0Wa+OhHhOl
+      ifNT508OnxRUPtaFBVxnrPPZ/md74j2CVqZiTjRwwS0MuCBAwAUBAi4IUMCZrvnyFy+/M/IO
+      HuOhHrly7vTY6VPZU4LKR4ACrupW5635BXtBUPkIUMCF5FBYCUfVqKDya03n+PL0h8mBfTeu
+      /M+mYZ2YVWY885tjOO6psdwTv+elh1/qifcIKr/Wm+iWbW2mWVSNjFbKuZF0k102sb1Lo5El
+      +antT4krv8YtjCYSzUYk4Tn5ih6V/LlFKuG4J/iROw9lrPwBHPfUcBzfOTl8sq+p70j7EeEH
+      zv0kusK6fzyINlWeOjdx7u1v3xZUPm5GAZeJZFJG6nDmsKDy8RgfcKMLox+NffTW1bcElY8A
+      BdycOVdySvkqjnuCuji+s3RlYhbUoA8UcJTQLseVNFHLsRCggGurLvxtYnIyXBH0CI1bWMCF
+      1cjyVQQEKOC09K4X7un9867HCdaFQR2y81krkro4NyyofAQo4DqiHdOV6Y6oqOXFd+xEswv/
+      /czVW3SvVKHRRw6JWqMPgowujHrMuzF/gxEmYnXznQLE3NGxiaZWu+hHFHvKcnd4tu153rrX
+      AwQpOSXD902nJKj8OwSI+X5Hd+fU7RzVbd+lsiTJmuY4jqDawLrrpKG/TE6Px1KCHuPvECAq
+      a3t27d6996BMHI+oiiQRSdTZdyBCmiqWzxKeqH+yO/aBaCzRLOizYQNMa0ZBUcaiohbH4yks
+      4NjiRJT5vYVxQZvLYSgj4GKMdpvWdyFRx6aiBQq4jFWVCemwqoLKR4ACjq24ioAABVyIMUpI
+      SMzCeIIABZ5N6fJVBAQo4DxKl68iIEABpzK2fBUBAQo4b8VVBAQo4HTGlq8iIEDA5a7eRDPf
+      +fC9DyrMeO74E0hcYxlu678ejUyntv9ezFjY3QXIs0LRTMQuW7btmGY+n8/nv1+otlkj85w7
+      /v1yqn1pfvhPLSlCF/ddON+SbOH59J90VwGiiqHIixXNCGmaoWmEEOzO0Sja3fbB8uC+9L5D
+      A4dE/Le5253ql34M27vAj9ztaDwmkcFPQp8YuCBAwAUBAi4IEHBBgIBLPXOiHccpFovrXpW6
+      OY6jqupm1+IHtm1rmrbZtfiB0O+nngCpqor3QDX8ot6T1XMLC4fD616POgwODlYWCzdvTxNC
+      CPGzwyPZ4ay4yb93b4t8P0sYY8OXv/5uoiDom6mnBdoiO9V//MHfL3XuCYciub4dZmH61o1x
+      QqTtO+7d9DeeW+T7WeLZ8x+fG4roV59/4XkRw6lb6Ff9udJ9u8o3r5OWnmz2aml6MaaJWvrU
+      4KhEGCGivpx6Tm3eIsZv3UzGIgtVb+rWmB5LxTSZENrZ27XpLdCWwhi7fnUwnOrqSAtZov5/
+      wEq+ObpSpb8AAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
