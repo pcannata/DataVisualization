@@ -1,8 +1,3 @@
-# aes_string is used below, its usage is:
-#    aes_string(...) 
-# Arguments
-#    ...    which is a list of name value pairs.
-
 FigureNum <<- 0 # Global variable
 
 ggplot_func <- function(df,
@@ -33,6 +28,8 @@ ggplot_func <- function(df,
       FigureNum <<- FigureNum + 1
     }
     
+    names(df)[names(df) == Legend] <- 'Legend'
+    
     p1 = ggplot() + 
       coord_cartesian() + 
       scale_x_continuous(breaks=c(seq(XMin,XMax,by=1)), minor_breaks=seq(XMin,XMax,by=1))  + 
@@ -40,7 +37,8 @@ ggplot_func <- function(df,
       scale_y_continuous() +
       scale_y_discrete() +
       scale_colour_manual(values = PointColor) + # See http://docs.ggplot2.org/0.9.3.1/scale_manual.html for more information.
-      facet_wrap(~cut) +
+      scale_color_discrete(name=Legend) + # This is not on the ggplot Cheat Sheet by the way.
+      #facet_wrap(~cut) +
       #facet_grid(clarity~cut, labeller=label_both) +
       labs(y = YLabel, x = paste(XLabel, '\nFigure', toString(FigNumOffset + FigNum)), title=Title) +
       ylim(YMin, YMax) + xlim(XMin, XMax) +
@@ -52,11 +50,13 @@ ggplot_func <- function(df,
       theme(panel.grid.minor = element_line(colour=MinorGridColor, size=MinorGridSize)) +
       theme(panel.background = element_rect(fill=Background, colour=Background)) +
       layer(data=df, 
-            # None of these work:
+            # None of these worked for the following non-commented line:
             #mapping=aes(x = carat, y = price, color = Legend),
             #mapping=aes(x = carat, y = price, aes_string(color = Legend)),
             #mapping=aes(x = carat, y = price, color = substitute(Legend))
-            mapping=aes(x = carat, y = price, color = color), 
+            # See http://stackoverflow.com/questions/32503843/using-a-function-parameter-in-ggplot-mapping-aes
+            # I fixed it by doing the names(df)[names(df) == Legend] <- 'Legend' above.
+            mapping=aes(x = carat, y = price, color = Legend), 
             stat="identity", 
             stat_params=list(), 
             geom="point",
@@ -64,8 +64,7 @@ ggplot_func <- function(df,
             #position=position_identity()
             position=position_jitter(width=0.3, height=0)
             #position=position_dodge()
-      )
-    
+      ) 
     return(p1)
 }
 
