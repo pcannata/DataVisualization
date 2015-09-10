@@ -33,19 +33,38 @@ ggplot_func <- function(df,
       FigureNum <<- FigureNum + 1
     }
     
-    p1 = ggplot(df, aes(x = carat, y = price)) + 
-    geom_point(aes_string(color = Legend)) + 
-    scale_colour_manual(values = PointColor) + # See http://docs.ggplot2.org/0.9.3.1/scale_manual.html for more information.
-    labs(y = YLabel, x = paste(XLabel, '\nFigure', toString(FigNumOffset + FigNum)), title=Title) +
-    ylim(YMin, YMax) + xlim(XMin, XMax) + 
-    scale_x_continuous(breaks=c(seq(XMin,XMax,by=1)), minor_breaks=seq(XMin,XMax,by=1))  + 
-    # theme is now used, see http://docs.ggplot2.org/0.9.2.1/theme.html for more information.
-    theme(legend.text = element_text(size = LegendSize, face = "bold")) + # see http://www.cookbook-r.com/Graphs/Legends_(ggplot2) for more information.
-    theme(axis.text=element_text(size=12), axis.title=element_text(size=AxisSize,face="bold")) +
-    theme(plot.title = element_text(size=TitleSize,face="bold")) +
-    theme(panel.grid.major = element_line(colour=MajorGridColor, size=MajorGridSize)) +
-    theme(panel.grid.minor = element_line(colour=MinorGridColor, size=MinorGridSize)) +
-    theme(panel.background = element_rect(fill=Background, colour=Background))
+    p1 = ggplot() + 
+      coord_cartesian() + 
+      scale_x_continuous(breaks=c(seq(XMin,XMax,by=1)), minor_breaks=seq(XMin,XMax,by=1))  + 
+      #scale_x_discrete() +
+      scale_y_continuous() +
+      scale_y_discrete() +
+      scale_colour_manual(values = PointColor) + # See http://docs.ggplot2.org/0.9.3.1/scale_manual.html for more information.
+      facet_wrap(~cut) +
+      #facet_grid(clarity~cut, labeller=label_both) +
+      labs(y = YLabel, x = paste(XLabel, '\nFigure', toString(FigNumOffset + FigNum)), title=Title) +
+      ylim(YMin, YMax) + xlim(XMin, XMax) +
+      # theme is now used, see http://docs.ggplot2.org/0.9.2.1/theme.html for more information.
+      theme(legend.text = element_text(size = LegendSize, face = "bold")) + # see http://www.cookbook-r.com/Graphs/Legends_(ggplot2) for more information.
+      theme(axis.text=element_text(size=12), axis.title=element_text(size=AxisSize,face="bold")) +
+      theme(plot.title = element_text(size=TitleSize,face="bold")) +
+      theme(panel.grid.major = element_line(colour=MajorGridColor, size=MajorGridSize)) +
+      theme(panel.grid.minor = element_line(colour=MinorGridColor, size=MinorGridSize)) +
+      theme(panel.background = element_rect(fill=Background, colour=Background)) +
+      layer(data=df, 
+            # None of these work:
+            #mapping=aes(x = carat, y = price, color = Legend),
+            #mapping=aes(x = carat, y = price, aes_string(color = Legend)),
+            #mapping=aes(x = carat, y = price, color = substitute(Legend))
+            mapping=aes(x = carat, y = price, color = color), 
+            stat="identity", 
+            stat_params=list(), 
+            geom="point",
+            geom_params=list(), 
+            #position=position_identity()
+            position=position_jitter(width=0.3, height=0)
+            #position=position_dodge()
+      )
     
     return(p1)
 }
@@ -61,6 +80,8 @@ p4
 
 library("grid")
 
+# You may need to use getwd() to find out where the "4diamonds.png" file will be put.
+# You can use setwd() to set the current working directory.
 png("4diamonds.png", width = 25, height = 20, units = "in", res = 72)
 grid.newpage()
 pushViewport(viewport(layout = grid.layout(2, 2)))   

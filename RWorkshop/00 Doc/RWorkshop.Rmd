@@ -72,6 +72,17 @@ require("lubridate")
 ![](./RforEveryone.jpeg) ![](./RRR.png)  
 http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=sr_1_1?ie=UTF8&qid=1404611818&sr=8-1&keywords=R+for+everyone 
 
+###00 KnitR Overview
+**KnitR is an R package designed to generate dynamic reports using a mix of the R, LaTex, and the Rmarkdown (see http://rmarkdown.rstudio.com/?version=0.98.945&mode=desktop) languages.**  
+
+See also http://yihui.name/knitr/ and http://kbroman.github.io/knitr_knutshell/
+
+**Simple examples can be found in "04 KnitR/doc1.Rmd" and "04 KnitR/doc2.Rmd". These can generate html, pdf, and word documents. The output from Kniting doc2.Rmd is,**  
+
+![](./KnitR.png) 
+
+####A comprehensive KnitR example (which generated this document) can be found in "00 Doc/RWorkshop.Rmd".  
+
 http://www.amazon.com/Reproducible-Research-Studio-Edition-Chapman/dp/1498715370/ref=dp_ob_title_bk 
 
 ###00 High Level Overview - Creating an Excel-like Chart in R - see the 00 Overview Folder in the DrCannata/Rworkshop Repository  
@@ -136,23 +147,12 @@ source("../03 Grammar of Graphics with R & ggplot2/Grammar Examples.R", echo = T
 ###ggplot2 and functions
 
 ```{r}
-# source("../03 ggplot/plotFunction.R", echo = TRUE)
+# source("../03 Grammar of Graphics with R & ggplot2/plotFunction.R", echo = TRUE)
 ```
 
 **You should now be able to open RWorkshop/00 Doc/4diamonds.png. It should look like the following plot.**
 
 ![](./4diamonds.png) 
-
-###KnitR
-**KnitR is an R package designed to generate dynamic reports using a mix of the R, LaTex, and the Rmarkdown (see http://rmarkdown.rstudio.com/?version=0.98.945&mode=desktop) languages.**  
-
-See also http://yihui.name/knitr/ and http://kbroman.github.io/knitr_knutshell/
-
-**Simple examples can be found in "04 KnitR/doc1.Rmd" and "04 KnitR/doc2.Rmd". These can generate html, pdf, and word documents. The output from Kniting doc2.Rmd is,**  
-
-![](./KnitR.png) 
-
-####A comprehensive KnitR example (which generated this document) can be found in "00 Doc/RWorkshop.Rmd".  
 
 ###slidify
 **You can use Slidify to generate HTML slide decks using only the Rmarkdown language.**  
