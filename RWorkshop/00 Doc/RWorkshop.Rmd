@@ -1,10 +1,11 @@
 ---
 output:
+  pdf_document: default
   html_document:
-    pandoc_args: [
-      "+RTS", "-K64m",
-      "-RTS"
-    ]
+    pandoc_args:
+    - +RTS
+    - -K64m
+    - -RTS
 ---
 R Technology Workshop
 ===
