@@ -28,7 +28,7 @@ grep("^G.*d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'col
 grep("^Go+d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^[Gg]o+d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^[Gg]o+d|Fair", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
-grep("(Very|Highly) Good", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
+grep("((Very|Highly) Good)|Ideal", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 
 # Changing column values based upon a regular expression
 # d <- with(diamonds, gsub("(Very|Highly) Good", "Great", cut)) %>% diamonds["cut", .]
