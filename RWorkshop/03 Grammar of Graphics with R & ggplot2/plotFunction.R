@@ -30,7 +30,7 @@ ggplot_func <- function(df,
     
     names(df)[names(df) == Legend] <- 'Legend'
     
-    p1 = ggplot() + 
+    p1 <- ggplot() + 
       coord_cartesian() + 
       scale_x_continuous(breaks=c(seq(XMin,XMax,by=1)), minor_breaks=seq(XMin,XMax,by=1))  + 
       #scale_x_discrete() +
