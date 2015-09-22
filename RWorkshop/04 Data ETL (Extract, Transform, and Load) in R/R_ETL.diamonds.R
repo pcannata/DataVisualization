@@ -1,15 +1,10 @@
+df = diamonds
 setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extract, Transform, and Load) in R/CSVs")
-
-file_path <- "April16AdvTblCalc.csv"
-
-df <- read.csv(file_path, stringsAsFactors = FALSE)
-
-# Replace "." (i.e., period) with "_" in the column names.
-names(df) <- gsub("\\.+", "_", names(df))
+file_path <- "Diamonds.csv"
 
 str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
 
-measures <- c("Customer_ID", "Order_ID", "Postal_Code", "Row_ID", "Discount", "Gross_Profit_Ratio" , "Number_of_Records", "Order_Quantity", "Product_Base_Margin", "Profit", "Sales", "Shipping_Cost", "Unit_Price")
+measures <- c("carat", "depth", "table", "price", "x", "y" , "z")
 #measures <- NA # Do this if there are no measures.
 
 # Get rid of special characters in each column.
@@ -29,12 +24,6 @@ if( length(measures) > 1 || ! is.na(dimensions)) {
     df[d] <- data.frame(lapply(df[d], gsub, pattern=":",replacement= ";"))
   }
 }
-
-library(lubridate)
-# Fix date columns, this needs to be done by hand because | needs to be correct.
-#                                                        \_/
-df$Order_Date <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Order_Date), tz="UTC")))
-df$Ship_Date  <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Ship_Date),  tz="UTC")))
 
 # The following is an example of dealing with special cases like making state abbreviations be all upper case.
 # df["State"] <- data.frame(lapply(df["State"], toupper))
