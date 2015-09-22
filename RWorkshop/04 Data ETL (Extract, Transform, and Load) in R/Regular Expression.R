@@ -8,7 +8,7 @@
 #   .   Matches any character
 #   |   or
 #   ()  Grouping
-#   []  Matches one character from the enclosed set of characters.
+#   []  Matches one character from the enclosed set of characters. [^something] not something
 #   {n}   The preceding item is matched exactly n times.
 #   {n,}  The preceding item is matched n or more times.
 #   {n,m} The preceding item is matched at least n times, but not more than m times.
@@ -20,8 +20,9 @@ tmp[1, c('carat', 'cut', 'color')] # Show the first row of tmp.
 grep("Good", tmp$cut, perl=TRUE, value=FALSE)
 
 grep("Good", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
-grep("G+", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
+grep(" +", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^G+", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
+grep("^[^G+]", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^G..d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^Go*d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
 grep("^G.*d", tmp$cut, perl=TRUE, value=FALSE) %>% tmp[., c('carat', 'cut', 'color')] %>% tbl_df
