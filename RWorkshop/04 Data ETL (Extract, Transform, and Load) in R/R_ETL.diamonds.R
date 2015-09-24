@@ -1,10 +1,11 @@
-df = diamonds
 setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extract, Transform, and Load) in R/CSVs")
 file_path <- "Diamonds.csv"
 
-str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
+df <- rename(diamonds, tbl = table) # table is a reserved word in Oracle so rename it to tbl.
 
-measures <- c("carat", "depth", "table", "price", "x", "y" , "z")
+# str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
+
+measures <- c("carat", "depth", "tbl", "price", "x", "y" , "z")
 #measures <- NA # Do this if there are no measures.
 
 # Get rid of special characters in each column.
