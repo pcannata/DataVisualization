@@ -1,5 +1,6 @@
 require(tidyr)
 require(dplyr)
+require(ggplot2)
 
 tbl_df(diamonds)
 View(diamonds)
@@ -14,25 +15,34 @@ x <- diamonds %>% select(cut, clarity) %>% tbl_df
 x
 
 # filter
-diamonds %>% select(cut, clarity) %>% filter(cut == "Good") %>% tbl_df # Equivalent SQL: 
-# select cut, clarity from diamonds where cut = 'Good'
+diamonds %>% select(cut, clarity) %>% filter(cut == "Good") %>% tbl_df # Equivalent SQL: select cut, clarity from diamonds where cut = 'Good';
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair")) %>% tbl_df
+# select cut, clarity from diamonds where cut in ('Good', 'Fair');
+# select cut, clarity from diamonds where cut = 'Good' or cut = 'Fair';
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1") %>% tbl_df
+# select cut, clarity from diamonds where (cut = 'Good' or cut = 'Fair') and clarity = 'VS1';
 diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% tbl_df
+# select cut, clarity from diamonds where ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null;
+# diamonds %>% select(cut, clarity) %>% filter(carat > 2) %>% tbl_df # This will give an error
+# select cut, clarity  from diamonds  where carat > 2;
+diamonds %>% filter(carat > 2) %>% select(cut, clarity) %>% tbl_df # This does not give an error.
 diamonds %>% select(carat, clarity) %>% filter(carat > 2) %>% tbl_df
-diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% tbl_df
+# select carat, clarity  from diamonds  where carat > 2;
 
 # arrange
 data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x)) %>% tbl_df
-data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x),y) %>% tbl_df
+data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x), y) %>% tbl_df
 diamonds %>% arrange(carat) %>% tbl_df
+# select * from diamonds order by carat;
 diamonds %>% arrange(desc(carat)) %>% tbl_df
+# select * from diamonds order by carat desc;
 
 # rename
 diamonds %>% rename(tbl= table) %>% tbl_df
 
 # mutate
 diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% mutate(sum = x+y+z) %>% tbl_df
+# select cut, clarity, x+y+z sum from diamondswhere ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null
 ndf <- diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% mutate(sum = x+y+z) %>% tbl_df
 ndf
 
