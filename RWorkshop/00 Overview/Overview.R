@@ -9,5 +9,8 @@ df
 require(reshape2)
 mdf <- melt(df, id.vars = "x", measure.vars = c("y", "y1"))
 mdf
+require(tidyr)
+mdf <- gather(df, variable, value, -x)
+mdf
 require(ggplot2)
 ggplot(mdf, aes(x=x, y=value, color=variable)) + geom_line()

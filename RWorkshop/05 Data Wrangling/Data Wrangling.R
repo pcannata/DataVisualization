@@ -16,37 +16,30 @@ x
 
 # filter
 diamonds %>% select(cut, clarity) %>% filter(cut == "Good") %>% tbl_df # Equivalent SQL: select cut, clarity from diamonds where cut = 'Good';
-diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair")) %>% tbl_df
-# select cut, clarity from diamonds where cut in ('Good', 'Fair');
-# select cut, clarity from diamonds where cut = 'Good' or cut = 'Fair';
-diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1") %>% tbl_df
-# select cut, clarity from diamonds where (cut = 'Good' or cut = 'Fair') and clarity = 'VS1';
-diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% tbl_df
-# select cut, clarity from diamonds where ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null;
+diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair")) %>% tbl_df # Equivalent SQL: select cut, clarity from diamonds where cut in ('Good', 'Fair');# or Equivalent SQL:  select cut, clarity from diamonds where cut = 'Good' or cut = 'Fair';
+diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1") %>% tbl_df # Equivalent SQL:  select cut, clarity from diamonds where (cut = 'Good' or cut = 'Fair') and clarity = 'VS1';
+diamonds %>% select(cut, clarity) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% tbl_df # Equivalent SQL:  select cut, clarity from diamonds where ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null;
 # diamonds %>% select(cut, clarity) %>% filter(carat > 2) %>% tbl_df # This will give an error
-# select cut, clarity  from diamonds  where carat > 2;
+# Equivalent SQL:  select cut, clarity  from diamonds  where carat > 2;
 diamonds %>% filter(carat > 2) %>% select(cut, clarity) %>% tbl_df # This does not give an error.
-diamonds %>% select(carat, clarity) %>% filter(carat > 2) %>% tbl_df
-# select carat, clarity  from diamonds  where carat > 2;
+diamonds %>% select(carat, clarity) %>% filter(carat > 2) %>% tbl_df # Equivalent SQL:  select carat, clarity  from diamonds  where carat > 2;
 
 # arrange
 data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x)) %>% tbl_df
 data.frame(x=c(1,1,1,2,2), y=c(5:1), z=(1:5)) %>% arrange(desc(x), y) %>% tbl_df
-diamonds %>% arrange(carat) %>% tbl_df
-# select * from diamonds order by carat;
-diamonds %>% arrange(desc(carat)) %>% tbl_df
-# select * from diamonds order by carat desc;
+diamonds %>% arrange(carat) %>% tbl_df # Equivalent SQL:  select * from diamonds order by carat;
+diamonds %>% arrange(desc(carat)) %>% tbl_df # Equivalent SQL:select * from diamonds order by carat desc;
 
 # rename
-diamonds %>% rename(tbl= table) %>% tbl_df
+diamonds %>% rename(tbl= table) %>% tbl_df # Equivalent: select tbl as "table" from diamonds;
 
 # mutate
-diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% mutate(sum = x+y+z) %>% tbl_df
-# select cut, clarity, x+y+z sum from diamondswhere ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null
+diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% mutate(sum = x+y+z) %>% tbl_df # Equivalent: select cut, clarity, x+y+z as sum from diamonds where ((cut = 'Good' or cut = 'Fair') and clarity = 'VS1') or cut is null
 ndf <- diamonds %>% select(cut, clarity, x, y, z) %>% filter(cut %in% c("Good", "Fair"), clarity == "VS1" | is.na(cut)) %>% mutate(sum = x+y+z) %>% tbl_df
 ndf
 
 # Useful mutate functions:
+    # diamonds$ID<-seq.int(nrow(diamonds)) # Add a sequince number column
     # pmin(), pmax() Parallel, Element-wise min and max
     # cummin(), cummax() Cumulative min and max
     # cumsum(), cumprod() Cumulative sum and product
@@ -87,9 +80,10 @@ c(1,1:5) %>% cume_dist()
 # c(TRUE, TRUE, FALSE, FALSE, TRUE) %>% cumall()
 # c(FALSE, TRUE, FALSE, FALSE, TRUE) %>% cumany()
 # Now let's try them in the mutate function
-diamonds %>% mutate(price_percent = cume_dist(price)) %>% arrange(desc(price_percent)) %>% tbl_df
+diamonds %>% mutate(price_percent = cume_dist(price)) %>% arrange(desc(price_percent)) %>% tbl_df # Equivalent SQL: 
 # select d.*, cume_dist() OVER (order by price) cume_dist from diamonds d order by 11 desc;
 # select d.*, cume_dist() OVER (PARTITION BY cut order by price) cume_dist from (select * from diamonds where rownum < 100) d order by cut desc, 11 desc;
+# Can also try rank(), last_value, nth_value
 
 bottom20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20) %>% arrange(desc(price_percent)) %>% tbl_df
 diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent >= .80) %>% arrange(desc(price_percent)) %>% tbl_df
@@ -97,6 +91,7 @@ top20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filt
 diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80) %>% ggplot(aes(x = price, y = carat)) + geom_point(aes(color=cut))
 
 # summarize (summarise)
+diamonds %>% summarize(max_price = max(price)) # Equivalent SQL:select max(price) as max_price from diamonds;
 diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n())
 # Useful Summary functions:
 # min(), max() Minimum and maximum values
@@ -110,6 +105,8 @@ diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n())
 # n() The number of values in a vector
 # n_distinct() The number of distinct values in a vector
 
+# group_by
+diamonds %>% group_by(cut,color) %>% summarise(n = n()) %>% arrange(n) # Equivalent SQL: select cut, color, count(*) n from diamonds group by cut, color order by n;
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% ungroup %>% summarize(sum(n))
 
@@ -117,3 +114,11 @@ diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z),
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% arrange(desc(n), cut, color)
 
 diamonds %>% group_by(cut, color, clarity) %>% summarise(mean_carat = mean(carat)) %>% ggplot(aes(x=cut, y=mean_carat, color=color)) + geom_point() + facet_wrap(~clarity)
+
+# reshaping - see 00 Overview/Overview.R
+require(tidyr)
+diamonds$ID<-seq.int(nrow(diamonds))
+head(diamonds) 
+head(diamonds) %>% select(ID, cut, color) %>% gather(variable, value, -ID) %>% tbl_df
+# head(diamonds) %>% select(ID, cut, color) %>% gather(variable, value, -ID) %>% gather(variable, value) %>% spread(variable, value) %>% tbl_df
+

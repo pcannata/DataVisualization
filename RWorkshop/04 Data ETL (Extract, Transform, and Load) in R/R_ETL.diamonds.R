@@ -1,3 +1,7 @@
+require(tidyr)
+require(dplyr)
+require(ggplot2)
+
 setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extract, Transform, and Load) in R/CSVs")
 file_path <- "Diamonds.csv"
 
