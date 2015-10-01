@@ -53,9 +53,9 @@ ndf
     # dense_rank(), min_rank(),
     # percent_rank(), row_number() Various ranking methods
 
-pmin(c(1:5), (5:1)) # Pairwise min
+pmin(1:5, 5:1) # Pairwise min
 diamonds %>% mutate(minxy = pmin(x,y)) %>% tbl_df
-pmax(c(1:5), (5:1)) # Pairwise max
+pmax(1:5, 5:1) # Pairwise max
 c(1,1,2,0,4,3,5) %>% cummin()
 diamonds %>% mutate(cummin_x = cummin(x)) %>% tbl_df
 c(1,1,2,5,4,3,5) %>% cummax()
@@ -65,10 +65,12 @@ c(1,1,2,3,4,3,5) %>% cumprod()
 c(1,1,2,3,4,3,5) %>% between(2,4)
 diamonds %>% mutate(between_x = between(x,4,4.1)) %>% tbl_df
 c(1:5) %>% cummean()
+c(1:5) %>% lead()
 c(1:5) %>% lead() - c(1:5)
 diamonds %>% mutate(lead_z = lead(z)-z) %>% tbl_df
+c(1:5) %>% lag()
 c(1:5) %>% lag() - c(1:5)
-diamonds %>% mutate(lag_z = lag(z)-z) %>% tbl_df
+diamonds %>% mutate(lag_z = z-lag(z)) %>% tbl_df
 c(1:10)
 c(1:10) %>% ntile(4) # bucket edges are rounded
 diamonds %>% mutate(ntile_z = ntile(z,100)) %>% arrange(desc(ntile_z)) %>% tbl_df
@@ -88,11 +90,11 @@ diamonds %>% mutate(price_percent = cume_dist(price)) %>% arrange(desc(price_per
 bottom20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20) %>% arrange(desc(price_percent)) %>% tbl_df
 diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent >= .80) %>% arrange(desc(price_percent)) %>% tbl_df
 top20_diamonds <- diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent >= .80) %>% arrange(desc(price_percent)) %>% tbl_df
-diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80) %>% ggplot(aes(x = price, y = carat)) + geom_point(aes(color=cut))
+diamonds %>% mutate(price_percent = cume_dist(price)) %>% filter(price_percent <= .20 | price_percent >= .80) %>% ggplot(aes(x = price, y = carat, color = cut)) + geom_point()
 
 # summarize (summarise)
 diamonds %>% summarize(max_price = max(price)) # Equivalent SQL:select max(price) as max_price from diamonds;
-diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n())
+diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n()) # Equivalent SQL:select avg(x) as avg, sum(x)+sum(y)+sum(z) as sum, count(*) as n from diamonds;
 # Useful Summary functions:
 # min(), max() Minimum and maximum values
 # mean() Mean value
@@ -106,7 +108,7 @@ diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n())
 # n_distinct() The number of distinct values in a vector
 
 # group_by
-diamonds %>% group_by(cut,color) %>% summarise(n = n()) %>% arrange(n) # Equivalent SQL: select cut, color, count(*) n from diamonds group by cut, color order by n;
+d <- diamonds %>% group_by(cut,color) %>% summarise(n = n()) %>% arrange(n) %>% tbl_df # Equivalent SQL: select cut, color, count(*) n from diamonds group by cut, color order by n;
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n())
 diamonds %>% group_by(cut,color) %>% summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% ungroup %>% summarize(sum(n))
 
