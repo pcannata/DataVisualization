@@ -60,7 +60,7 @@ c(1,1,2,0,4,3,5) %>% cummin()
 diamonds %>% mutate(cummin_x = cummin(x)) %>% tbl_df
 c(1,1,2,5,4,3,5) %>% cummax()
 c(1,1,2,3,4,3,5) %>% cumsum()
-diamonds %>% mutate(cumsum_x = cumsum(x)) %>% tbl_df
+diamonds %>% arrange(x) %>% mutate(cumsum_x = cumsum(x)) %>% ggplot(aes(x = x, y = cumsum_x)) + geom_point()
 c(1,1,2,3,4,3,5) %>% cumprod()
 c(1,1,2,3,4,3,5) %>% between(2,4)
 diamonds %>% mutate(between_x = between(x,4,4.1)) %>% tbl_df
