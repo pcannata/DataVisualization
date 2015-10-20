@@ -14,6 +14,9 @@
 #   {n,m} The preceding item is matched at least n times, but not more than m times.
 #   \     The following metacharacter losses it's special meaning.
 
+# Here's an interesting regular expression: gsub("(.*[^I]$)","\\1I", "B8")
+# See Answer 3 at http://stackoverflow.com/questions/952275/regex-group-capture-in-r-with-multiple-capture-groups
+
 tmp <- head(diamonds, 20)
 tmp
 tmp[1, c('carat', 'cut', 'color')] # Show the first row of tmp.
