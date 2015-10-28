@@ -1,3 +1,8 @@
+require("jsonlite")
+require("RCurl")
+require(ggplot2)
+require(dplyr)
+
 # The following is equivalent to KPI Story 2 Sheet 2 and Parameters Story 3 in "Crosstabs, KPIs, Barchart.twb"
 
 # These will be made to more resemble Tableau Parameters when we study Shiny.
@@ -12,8 +17,8 @@ when kpi < "p2" then \\\'02 Medium\\\'
 else \\\'01 High\\\'
 end kpi
 from (select color, clarity, 
-   sum(price) sum_price, sum(carat) sum_carat, 
-   sum(price) / sum(carat) kpi
+   sum(price) as sum_price, sum(carat) as sum_carat, 
+   sum(price) / sum(carat) as kpi
    from diamonds
    group by color, clarity)
 order by clarity;"
@@ -85,7 +90,7 @@ ggplot() +
   scale_x_discrete() +
   scale_y_continuous() +
   facet_wrap(~CLARITY, ncol=1) +
-  labs(title='Diamonds Crosstab') +
+  labs(title='Diamonds Barchart\nAVERAGE_PRICE, WINDOW_AVG_PRICE, ') +
   labs(x=paste("COLOR"), y=paste("AVG_PRICE")) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=AVG_PRICE), 
