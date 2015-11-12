@@ -5,10 +5,10 @@ library(shiny)
 # Define UI for application that plots random distributions 
 shinyUI(pageWithSidebar(
 
-  # Application title
-  headerPanel("Hello Shiny!"),
+# Application title
+headerPanel("Hello Shiny!"),
 
-  # Sidebar with a slider input for number of observations
+# Sidebar with a slider input for number of observations
   sidebarPanel(
     sliderInput("KPI1", 
                 "KPI_Low_Max_value:", 
@@ -22,7 +22,7 @@ shinyUI(pageWithSidebar(
                 value = 5000)
   ),
 
-  # Show a plot of the generated distribution
+# Show a plot of the generated distribution
   mainPanel(
     plotOutput("distPlot")
   )

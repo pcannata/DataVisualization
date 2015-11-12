@@ -7,14 +7,13 @@ require(shiny)
 
 shinyServer(function(input, output) {
 
-
   output$distPlot <- renderPlot({
+# Start your code here.
+
+# The following is equivalent to KPI Story 2 Sheet 2 and Parameters Story 3 in "Crosstabs, KPIs, Barchart.twb"
     
-    # The following is equivalent to KPI Story 2 Sheet 2 and Parameters Story 3 in "Crosstabs, KPIs, Barchart.twb"
-    
-    # These will be made to more resemble Tableau Parameters when we study Shiny.
-    KPI_Low_Max_value = input$KPI1     
-    KPI_Medium_Max_value = input$KPI2
+KPI_Low_Max_value = input$KPI1     
+KPI_Medium_Max_value = input$KPI2
     
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
 "select color, clarity, sum_price, round(sum_carat) as sum_carat, kpi as ratio, 
@@ -55,6 +54,8 @@ plot <- ggplot() +
             geom_params=list(alpha=0.50), 
             position=position_identity()
       )
+
+# End your code here.
       return(plot)
   })
 })
