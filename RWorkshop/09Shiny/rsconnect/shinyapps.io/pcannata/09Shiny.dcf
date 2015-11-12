@@ -1,0 +1,8 @@
+name: 09Shiny
+account: pcannata
+server: shinyapps.io
+bundleId: 308800
+url: https://pcannata.shinyapps.io/09Shiny
+when: 1447295554.9851
+asMultiple: FALSE
+asStatic: FALSE
