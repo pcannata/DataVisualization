@@ -176,7 +176,7 @@ See also http://shiny.rstudio.com and http://shiny.rstudio.com/tutorial
 
 To run the shiny app that's in the 06Shiny directory run the following in the main RWorkshop directory (make sure the working directory is set to this directory):  
 library(shiny)  
-runApp("06Shiny")   # Make sure there are no spaces in the string argument to runAPP
+runApp("09Shiny")   # Make sure there are no spaces in the string argument to runAPP
 
 This should pop the application up in a browser, you can also access it in a browser at http://127.0.0.1:6837. It should look like the following.
 
