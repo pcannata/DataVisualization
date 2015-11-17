@@ -9,8 +9,11 @@ shinyServer(function(input, output) {
         
       KPI_Low_Max_value <- reactive({input$KPI1})     
       KPI_Medium_Max_value <- reactive({input$KPI2})
+      rv <- reactiveValues(alpha = 0.50)
+      observeEvent(input$light, { rv$alpha <- 0.50 })
+      observeEvent(input$dark, { rv$alpha <- 0.75 })
     
-      df <- reactive({data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+      df <- eventReactive(input$clicks, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
             "select color, clarity, sum_price, round(sum_carat) as sum_carat, kpi as ratio, 
             case
             when kpi < "p1" then \\\'03 Low\\\'
@@ -47,9 +50,13 @@ shinyServer(function(input, output) {
                         stat="identity", 
                         stat_params=list(), 
                         geom="tile",
-                        geom_params=list(alpha=0.50), 
+                        geom_params=list(alpha=rv$alpha), 
                         position=position_identity()
                   )
             plot
       }) 
+
+      observeEvent(input$clicks, {
+            print(as.numeric(input$clicks))
+      })
 })

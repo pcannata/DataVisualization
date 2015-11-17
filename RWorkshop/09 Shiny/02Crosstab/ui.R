@@ -10,6 +10,8 @@ shinyUI(pageWithSidebar(
 
   # Sidebar with a slider input for number of observations
     sidebarPanel(
+      actionButton(inputId = "light", label = "Light"),
+      actionButton(inputId = "dark", label = "Dark"),
       sliderInput("KPI1", 
                   "KPI_Low_Max_value:", 
                   min = 1,
