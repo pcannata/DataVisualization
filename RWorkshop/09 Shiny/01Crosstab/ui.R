@@ -25,5 +25,6 @@ headerPanel("Hello Shiny!"),
 # Show a plot of the generated distribution
   mainPanel(
     plotOutput("distPlot")
+    #plotOutput("distTable")
   )
 ))
