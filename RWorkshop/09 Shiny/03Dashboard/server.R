@@ -4,6 +4,8 @@ require("RCurl")
 require(ggplot2)
 require(dplyr)
 require(shiny)
+require(shinydashboard)
+require(leaflet)
 
 shinyServer(function(input, output) {
         
@@ -144,5 +146,9 @@ shinyServer(function(input, output) {
                     position=position_identity()
               )
               plot3
+      })
+
+# Begin code for Fourth Tab:
+      output$map <- renderLeaflet({leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17) %>% addPopups(-93.65, 42.0285, 'Here is the Department of Statistics, ISU')
       })
 })

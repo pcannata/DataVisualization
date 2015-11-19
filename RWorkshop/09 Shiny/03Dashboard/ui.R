@@ -1,15 +1,18 @@
-#ui.R 
+#ui.R
 
 require(shiny)
 require(shinydashboard)
+require(leaflet)
 
 dashboardPage(
-  dashboardHeader(),
+  dashboardHeader(
+  ),
   dashboardSidebar(
     sidebarMenu(
       menuItem("Crosstab", tabName = "crosstab", icon = icon("dashboard")),
       menuItem("Barchart", tabName = "barchart", icon = icon("th")),
-      menuItem("Blending", tabName = "blending", icon = icon("th"))
+      menuItem("Blending", tabName = "blending", icon = icon("th")),
+      menuItem("Map", tabName = "map", icon = icon("th"))
     )
   ),
   dashboardBody(
@@ -39,6 +42,11 @@ dashboardPage(
       tabItem(tabName = "blending",
         actionButton(inputId = "clicks3",  label = "Click me"),
         plotOutput("distPlot3")
+      ),
+      
+      # Fourth tab content
+      tabItem(tabName = "map",
+        leafletOutput("map")
       )
     )
   )

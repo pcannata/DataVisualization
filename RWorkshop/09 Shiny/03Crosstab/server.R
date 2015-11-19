@@ -4,6 +4,8 @@ require("RCurl")
 require(ggplot2)
 require(dplyr)
 require(shiny)
+require(shinydashboard)
+require(leaflet)
 
 shinyServer(function(input, output) {
         
