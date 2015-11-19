@@ -6,6 +6,7 @@ require(dplyr)
 require(shiny)
 require(shinydashboard)
 require(leaflet)
+require(DT)
 
 shinyServer(function(input, output) {
         
@@ -150,5 +151,9 @@ shinyServer(function(input, output) {
 
 # Begin code for Fourth Tab:
       output$map <- renderLeaflet({leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17) %>% addPopups(-93.65, 42.0285, 'Here is the Department of Statistics, ISU')
+      })
+
+# Begin code for Fifth Tab:
+      output$table <- renderDataTable({datatable(df1())
       })
 })

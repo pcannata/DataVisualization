@@ -12,7 +12,8 @@ dashboardPage(
       menuItem("Crosstab", tabName = "crosstab", icon = icon("dashboard")),
       menuItem("Barchart", tabName = "barchart", icon = icon("th")),
       menuItem("Blending", tabName = "blending", icon = icon("th")),
-      menuItem("Map", tabName = "map", icon = icon("th"))
+      menuItem("Map", tabName = "map", icon = icon("th")),
+      menuItem("Table", tabName = "table", icon = icon("th"))
     )
   ),
   dashboardBody(
@@ -47,6 +48,11 @@ dashboardPage(
       # Fourth tab content
       tabItem(tabName = "map",
         leafletOutput("map")
+      ),
+        
+      # Fifth tab content
+      tabItem(tabName = "table",
+        dataTableOutput("table")
       )
     )
   )
