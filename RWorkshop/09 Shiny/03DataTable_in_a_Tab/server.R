@@ -34,7 +34,7 @@ shinyServer(function(input, output) {
       })
 
 # Begin code for First Tab:
-      output$table <- renderDataTable({DT::datatable(df1(), rownames = FALSE,
+      output$table <- renderDataTable({DT::datatable(df1(), rownames = TRUE,
             extensions = list(
                         # THe following statement is commented out because it doesn't seem to work properly.
                           # AutoFill = list(columnDefs = list(list(enable = FALSE, targets = c(0, 1, -1, -2)), list(increment = TRUE, targets = c(3, 4)))),
