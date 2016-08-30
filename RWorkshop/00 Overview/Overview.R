@@ -1,3 +1,4 @@
+# I'm making a change to this code.
 x <- c(1,2,3,4,5) # This is creates a vector in variable x
 y <- 3 * x        # This is creates a vector in variable y
 y1 <- 2 ** x      # This is creates a vector in variable y1
