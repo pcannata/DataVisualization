@@ -26,9 +26,9 @@ theme(
 layer(data=diamonds, 
   mapping=aes(x=cut, y=price, color=color), 
   stat="identity", 
-  stat_params=list(), 
+  #stat_params=list(), 
   geom="point",
-  geom_params=list(), 
+  #geom_params=list(), 
   #position=position_identity()
   position=position_jitter(width=0.3, height=0)
   #position=position_dodge()
@@ -36,23 +36,24 @@ layer(data=diamonds,
 layer(data=diamonds, 
   mapping=aes(x=cut, y=price), 
   stat="boxplot", 
-  stat_params=list(), 
+  #stat_params=list(), 
   geom="boxplot",
-  geom_params=list(color="red", fill="red", alpha=0), 
+  #geom_params=list(color="red", fill="red", alpha=0), 
   position=position_identity()
 ) + layer(
   data=diamonds,
   mapping=aes(x=cut, y=price),
-  stat="smooth", stat_params=list(),
-  geom="smooth", geom_params=list(),
+  stat="smooth", #stat_params=list(),
+  geom="smooth", #geom_params=list(),
   position=position_identity()
 ) +
 layer(
   data=diamonds,
-  mapping=aes(x=color),
+  mapping=aes(x=color),,
   stat="bin",
-  stat_params=list(),
+  stat="count",
+  #stat_params=list(),
   geom="bar",
-  geom_params=list(),
+  #geom_params=list(),
   position=position_identity()
 )
