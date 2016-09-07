@@ -71,7 +71,7 @@ require("lubridate")
 ###Recommended Books:
 
 <div style="width:200px; height=300px">
-![](./Images/RforEveryone.jpeg) 
+![some image](./Images/RforEveryone.jpeg) 
 </div>
 [R for Everyone](http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=sr_1_1?ie=UTF8&qid=1404611818&sr=8-1&keywords=R+for+everyone)  
 
@@ -90,7 +90,7 @@ require("lubridate")
 
 See also [knitr](http://yihui.name/knitr/), and [knitr in a knutshell a minimal tutorial](http://kbroman.github.io/knitr_knutshell/)
 
-**Simple examples can be found in "04 KnitR/doc1.Rmd" and "04 KnitR/doc2.Rmd". These can generate html, pdf, and word documents. The output from Kniting doc2.Rmd is,**  
+**Simple examples can be found in "00 KnitR/doc1.Rmd" and "00 KnitR/doc2.Rmd". These can generate html, pdf, and word documents. The output from Kniting doc2.Rmd is,**  
 
 ![](./Images/KnitR.png) 
 
