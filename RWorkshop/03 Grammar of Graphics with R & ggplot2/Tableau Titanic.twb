@@ -1,15 +1,21 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<workbook source-platform='mac' version='9.0' xmlns:user='http://www.tableausoftware.com/xml/user'>
-  <!-- build 9000.15.0506.1800                                -->
+<!-- build 10000.16.0812.0001                               -->
+<workbook source-build='10.0.0 (10000.16.0812.0001)' source-platform='mac' version='10.0' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
   </preferences>
+  <style-theme name='clean' />
   <datasources>
-    <datasource caption='Custom SQL Query (129.152.144.84)' inline='true' name='oracle.42257.420536967600' version='9.0'>
-      <connection authentication='RDBMS' class='oracle' port='1521' server='129.152.144.84' service='PDBF15DV.usuniversi01134.oraclecloud.internal' username='cs329e_UTEid'>
-        <relation name='Custom SQL Query' type='text'>select * from titanic</relation>
+    <datasource caption='Custom SQL Query (129.152.144.84)' inline='true' name='oracle.42257.420536967600' version='10.0'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Custom SQL Query (129.152.144.84)' name='oracle.42257.420536967600leaf'>
+            <connection authentication='RDBMS' class='oracle' port='1521' server='aevum.cs.utexas.edu' service='f16pdb' username='cs329e_UTEid' />
+          </named-connection>
+        </named-connections>
+        <relation connection='oracle.42257.420536967600leaf' name='Custom SQL Query' type='text'>select * from titanic</relation>
         <metadata-records>
           <metadata-record class='column'>
             <remote-name>PASSENGERID</remote-name>
@@ -235,12 +241,11 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
-      <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative'>
-      </column>
+      <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative' />
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.660952' measure-ordering='alphabetic' measure-percentage='0.339048' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -254,20 +259,16 @@
             <datasource caption='Custom SQL Query (129.152.144.84)' name='oracle.42257.420536967600' />
           </datasources>
           <datasource-dependencies datasource='oracle.42257.420536967600'>
-            <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative'>
-            </column>
-            <column datatype='string' name='[SEX]' role='dimension' type='nominal'>
-            </column>
-            <column datatype='string' name='[SURVIVED]' role='dimension' type='nominal'>
-            </column>
+            <column aggregation='CountD' datatype='integer' datatype-customized='true' name='[FARE]' role='measure' type='quantitative' />
+            <column datatype='string' name='[SEX]' role='dimension' type='nominal' />
+            <column datatype='string' name='[SURVIVED]' role='dimension' type='nominal' />
             <column-instance column='[SEX]' derivation='None' name='[none:SEX:nk]' pivot='key' type='nominal' />
             <column-instance column='[SURVIVED]' derivation='None' name='[none:SURVIVED:nk]' pivot='key' type='nominal' />
             <column-instance column='[FARE]' derivation='Sum' name='[sum:FARE:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='false' />
         </view>
-        <style>
-        </style>
+        <style />
         <panes>
           <pane>
             <view>
@@ -289,9 +290,8 @@
       </table>
     </worksheet>
   </worksheets>
-  <windows>
-    <window class='schema' source-height='-1' />
-    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 1'>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -312,14 +312,14 @@
       </cards>
       <viewpoint>
         <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[oracle.42257.420536967600].[none:FARE:nk]</field>
+            <field>[oracle.42257.420536967600].[none:SEX:nk]</field>
+            <field>[oracle.42257.420536967600].[none:SURVIVED:nk]</field>
+          </color-one-way>
+        </highlight>
       </viewpoint>
-      <highlight>
-        <color-one-way>
-          <field>[oracle.42257.420536967600].[none:FARE:nk]</field>
-          <field>[oracle.42257.420536967600].[none:SEX:nk]</field>
-          <field>[oracle.42257.420536967600].[none:SURVIVED:nk]</field>
-        </color-one-way>
-      </highlight>
     </window>
   </windows>
   <thumbnails>

@@ -16,7 +16,7 @@ labs(title='Diamonds') +
 labs(x="Cut", y="Price") +
 theme_grey() +
 theme(plot.background = element_rect(fill="green", colour=NA)) +
-theme(plot.title=element_text(size=10, face="bold", vjust=1, family="Arial")) +
+#theme(plot.title=element_text(size=10, face="bold", vjust=1, family="Arial")) +
 theme(axis.ticks.y=element_blank(), axis.text.y=element_blank()) +
 theme(axis.text.x=element_text(angle=50, size=10, vjust=0.5)) +
 theme(

@@ -49,7 +49,9 @@ ggplot_func <- function(df,
       theme(panel.grid.major = element_line(colour=MajorGridColor, size=MajorGridSize)) +
       theme(panel.grid.minor = element_line(colour=MinorGridColor, size=MinorGridSize)) +
       theme(panel.background = element_rect(fill=Background, colour=Background)) +
-      layer(data=df, 
+      layer(data=df,  
+            geom="point",
+            #geom_params=list(), 
             # None of these worked for the following non-commented line:
             #mapping=aes(x = carat, y = price, color = Legend),
             #mapping=aes(x = carat, y = price, aes_string(color = Legend)),
@@ -58,9 +60,7 @@ ggplot_func <- function(df,
             # I fixed it by doing the names(df)[names(df) == Legend] <- 'Legend' above.
             mapping=aes(x = carat, y = price, color = Legend), 
             stat="identity", 
-            stat_params=list(), 
-            geom="point",
-            geom_params=list(), 
+            #stat_params=list(),
             #position=position_identity()
             position=position_jitter(width=0.3, height=0)
             #position=position_dodge()
@@ -81,7 +81,7 @@ library("grid")
 
 # You may need to use getwd() to find out where the "4diamonds.png" file will be put.
 # You can use setwd() to set the current working directory.
-png("4diamonds.png", width = 25, height = 20, units = "in", res = 72)
+png("./RWorkshop/03 Grammar of Graphics with R & ggplot2/4diamonds.png", width = 25, height = 20, units = "in", res = 72)
 grid.newpage()
 pushViewport(viewport(layout = grid.layout(2, 2)))   
 
