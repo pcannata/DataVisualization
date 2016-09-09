@@ -4,7 +4,7 @@ require(ggplot2)
 options(java.parameters="-Xmx2g")
 
 ggplot() + 
-#coord_cartesian() + 
+coord_cartesian() + 
 #scale_x_continuous() +
 #scale_x_discrete() +
 #scale_y_continuous() +
