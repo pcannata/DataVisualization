@@ -2,6 +2,7 @@ require(extrafont)
 require(ggplot2)
 
 options(java.parameters="-Xmx2g")
+#Add a comment
 
 ggplot() + 
 coord_cartesian() + 
