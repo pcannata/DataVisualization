@@ -5,21 +5,25 @@ setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extrac
 file_path <- "Diamonds.csv"
 
 diamonds <- read.csv(file_path, stringsAsFactors = FALSE)
+names(diamonds)
 
 df <- rename(diamonds, tbl = table) # table is a reserved word in Oracle so rename it to tbl.
-
-# str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
-
-measures <- c("carat", "depth", "tbl", "price", "x", "y" , "z")
-#measures <- NA # Do this if there are no measures.
+names(df)
 
 # Get rid of special characters in each column.
 # Google ASCII Table to understand the following:
 for(n in names(df)) {
-    df[n] <- data.frame(lapply(df[n], gsub, pattern="[^ -~]",replacement= ""))
+  df[n] <- data.frame(lapply(df[n], gsub, pattern="[^ -~]",replacement= ""))
 }
 
+str(df) # Uncomment this line and  run just the lines to here to get column types to use for getting the list of measures.
+
+measures <- c("carat", "depth", "tbl", "price", "x", "y" , "z")
+#measures <- NA # Do this if there are no measures.
+
 dimensions <- setdiff(names(df), measures)
+dimensions
+
 if( length(measures) > 1 || ! is.na(dimensions)) {
   for(d in dimensions) {
     # Get rid of " and ' in dimensions.
