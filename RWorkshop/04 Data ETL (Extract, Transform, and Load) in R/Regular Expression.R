@@ -3,7 +3,7 @@
 #   ?   The preceding item is optional and will be matched at most once.
 #   *   The preceding item will be matched zero or more times.
 #   +   The preceding item will be matched one or more times.
-#   ^   Matches the beginning of a field or line.
+#   ^   Matches the beginning of a field or line. Or "not" if the patter begins with[^
 #   $   Matches the end of a field or line.
 #   .   Matches any character
 #   |   or
@@ -15,6 +15,29 @@
 #   \     The following metacharacter losses it's special meaning.
 
 lapply('alphabet begins with abc', gsub, pattern="[abc]",replacement= "")
+lapply('alphabet begins with abc', gsub, pattern="xyz",replacement= "")
+lapply('alphabet begins with abc', gsub, pattern="[^abc]",replacement= "")
+lapply('alphabet begins with abc', gsub, pattern="^[abc]",replacement= "")
+lapply('alphabet begins with --- abc', gsub, pattern="[a-e]",replacement= "")
+lapply('alphabet begins with --- abc', gsub, pattern="[ae-]",replacement= "")
+lapply('alphabet begins with \\\ abc', gsub, pattern="[ae\\]",replacement= "")
+lapply('alphabet begins with [] abc', gsub, pattern="[ae[]",replacement= "")
+lapply('alphabet begins with [] abc', gsub, pattern="[ae]]",replacement= "")
+lapply('alphabet begins with [e] abc', gsub, pattern="[ae]]",replacement= "")
+lapply('alphabet begins with [e] abc', gsub, pattern="[[ae]]",replacement= "")
+lapply('alphabet begins with [e[] abc', gsub, pattern="[[ae]]",replacement= "")
+
+lapply('alphabet begins with abc', gsub, pattern="ab?c",replacement= "")
+lapply('alphabet begins with ac', gsub, pattern="ab?c",replacement= "")
+lapply('alphabet begins with aabc', gsub, pattern="a*bc",replacement= "")
+lapply('alphabet begins with bc', gsub, pattern="a*bc",replacement= "")
+lapply('alphabet begins with aabc', gsub, pattern="a+bc",replacement= "")
+lapply('alphabet begins with bc', gsub, pattern="a+bc",replacement= "")
+lapply('alphabet begins with aabc', gsub, pattern="a+.c",replacement= "")
+lapply('alphabet begins with aabc', gsub, pattern=".*",replacement= "")
+lapply('alphabet begins with aaabc', gsub, pattern="a{2}bc",replacement= "")
+lapply('alphabet begins with aaabc', gsub, pattern="a{4}bc",replacement= "")
+lapply('alphabet begins with aaabc', gsub, pattern="(beg).*(abc)",replacement= "\\21234")
 
 # Here's an interesting regular expression: gsub("(.*[^I]$)","\\1I", "B8")
 # See Answer 3 at http://stackoverflow.com/questions/952275/regex-group-capture-in-r-with-multiple-capture-groups
