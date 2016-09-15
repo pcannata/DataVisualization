@@ -14,6 +14,8 @@
 #   {n,m} The preceding item is matched at least n times, but not more than m times.
 #   \     The following metacharacter losses it's special meaning.
 
+lapply('alphabet begins with abc', gsub, pattern="[abc]",replacement= "")
+
 # Here's an interesting regular expression: gsub("(.*[^I]$)","\\1I", "B8")
 # See Answer 3 at http://stackoverflow.com/questions/952275/regex-group-capture-in-r-with-multiple-capture-groups
 
