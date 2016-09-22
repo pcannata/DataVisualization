@@ -1,0 +1,64 @@
+require("jsonlite")
+require("RCurl")
+require("ggplot2")
+require("dplyr")
+
+getwd()
+if(! grepl('Data Wrangling', getwd())) setwd("./RWorkshop/05 Data Wrangling")
+
+experimentID = 10029
+df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
+"SELECT * from timeseries"
+')),httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', e=experimentID), verbose = TRUE), ))
+
+n <- df %>% distinct(NAME)
+names = sort(n[,1])
+class(names)
+e <- df %>% distinct(EID)
+eid = e[,1]
+
+require("grid")
+
+file <- paste("Timeseries_", eid, ".png")
+png(file, width = 20, height = 12, units = "in", res = 72)
+grid.newpage()
+pushViewport(viewport(layout = grid.layout(4, 1)))   
+
+plotNum = 1
+for(i in names){
+  if(grepl('data$', i)) next
+  #if(grepl('phys', i)) next
+  print(i)
+  
+  df1 = dplyr::filter(df, grepl(i, NAME))
+  
+  df2 = df1[with(df1, order(NAME, SNAPTIME)), ]
+  
+  df3 = dplyr::mutate(df2, before = lag(OBYTES), throughput = (OBYTES - lag(OBYTES)), time = SNAPTIME - min(SNAPTIME))
+  
+  df4 = dplyr::filter(df3, throughput < 10000000000 & throughput >= 0)
+  
+  plot = ggplot() + 
+    coord_cartesian() + 
+    scale_x_continuous() +
+    scale_y_continuous() +
+    facet_wrap(~ NAME, ncol = 2) +
+    theme_grey() +
+    theme(text = element_text(size=20)) +
+    labs(title=paste('Exp', eid, 'Obytes/second (i.e., obytes - previous obytes) vs. time')) +
+    labs(x="Time (i.e., snaptime - min(snaptime))", y="Obytes/second") +
+    guides(size=FALSE) +
+    
+    layer(data=df4,  
+          geom = "line",
+          # geom_params = list(size = 2),
+          mapping=aes(x=time, y=throughput, color=NAME, size='1'),
+          stat="identity", 
+          #stat_params=list(),
+          position=position_identity()
+    )
+  print(plot, vp = viewport(layout.pos.row = plotNum, layout.pos.col = 1)) 
+  plotNum = plotNum + 1
+}
+
+dev.off()
