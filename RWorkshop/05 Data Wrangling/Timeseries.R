@@ -11,6 +11,26 @@ df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas
 "SELECT * from timeseries"
 ')),httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', e=experimentID), verbose = TRUE), ))
 
+ggplot() + 
+  coord_cartesian() + 
+  scale_x_continuous() +
+  scale_y_continuous() +
+  facet_wrap(~ NAME, ncol = 2) +
+  theme_grey() +
+  theme(text = element_text(size=20)) +
+  labs(title=paste('Exp', experimentID, 'Obytes/second (i.e., obytes - previous obytes) vs. time')) +
+  labs(x="Time (i.e., snaptime - min(snaptime))", y="Obytes/second") +
+  guides(size=FALSE) +
+  
+  layer(data=df,  
+        geom = "line",
+        # geom_params = list(size = 2),
+        mapping=aes(x=SNAPTIME, y=OBYTES, color=NAME, size='1'),
+        stat="identity", 
+        #stat_params=list(),
+        position=position_identity()
+  )
+
 n <- df %>% distinct(NAME)
 names = sort(n[,1])
 class(names)
