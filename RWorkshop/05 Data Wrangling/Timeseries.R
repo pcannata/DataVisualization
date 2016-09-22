@@ -8,7 +8,9 @@ if(! grepl('Data Wrangling', getwd())) setwd("./RWorkshop/05 Data Wrangling")
 
 experimentID = 10029
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
-"SELECT * from timeseries where eid = "e""
+"SELECT * 
+from timeseries 
+where eid = "e""
 ')),httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', e=experimentID), verbose = TRUE), ))
 
 ggplot() + 
@@ -32,6 +34,7 @@ ggplot() +
   )
 
 n <- df %>% distinct(NAME)
+class(n)
 names = sort(n[,1])
 class(names)
 e <- df %>% distinct(EID)
@@ -39,7 +42,7 @@ eid = e[,1]
 
 require("grid")
 
-file <- paste("Timeseries_", eid, ".png")
+file <- paste("Timeseries_", eid, ".png",  sep="")
 png(file, width = 20, height = 12, units = "in", res = 72)
 grid.newpage()
 pushViewport(viewport(layout = grid.layout(4, 1)))   
@@ -50,9 +53,9 @@ for(i in names){
   #if(grepl('phys', i)) next
   print(i)
   
-  df1 = dplyr::filter(df, grepl(i, NAME))
+  df1 = dplyr::filter(df, grepl(i, NAME)) # Gives rows for one name
   
-  df2 = df1[with(df1, order(NAME, SNAPTIME)), ]
+  df2 = df1[with(df1, order(NAME, SNAPTIME)), ] # Sort the rows by name and then snaptime
   
   df3 = dplyr::mutate(df2, before = lag(OBYTES), throughput = (OBYTES - lag(OBYTES)), time = SNAPTIME - min(SNAPTIME))
   
