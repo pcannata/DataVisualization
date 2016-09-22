@@ -8,7 +8,7 @@ if(! grepl('Data Wrangling', getwd())) setwd("./RWorkshop/05 Data Wrangling")
 
 experimentID = 10029
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
-"SELECT * from timeseries"
+"SELECT * from timeseries where eid = "e""
 ')),httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', e=experimentID), verbose = TRUE), ))
 
 ggplot() + 
