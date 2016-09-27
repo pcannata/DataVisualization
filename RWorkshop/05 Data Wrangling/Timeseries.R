@@ -58,16 +58,18 @@ for(i in names){
   df2 = df1[with(df1, order(NAME, SNAPTIME)), ] # Sort the rows by name and then snaptime
   
   df3 = dplyr::mutate(df2, before = lag(OBYTES), throughput = (OBYTES - lag(OBYTES)), time = SNAPTIME - min(SNAPTIME))
+  maxTime = max(df3$time)
   
   df4 = dplyr::filter(df3, throughput < 10000000000 & throughput >= 0)
   
   plot = ggplot() + 
     coord_cartesian() + 
-    scale_x_continuous() +
+    scale_x_continuous(minor_breaks = seq(0 , maxTime, 1), breaks = seq(0, maxTime, 10)) +
     scale_y_continuous() +
     facet_wrap(~ NAME, ncol = 2) +
     theme_grey() +
     theme(text = element_text(size=20)) +
+    theme(panel.grid.minor = element_line(colour="white", size=0.5)) +
     labs(title=paste('Exp', eid, 'Obytes/second (i.e., obytes - previous obytes) vs. time')) +
     labs(x="Time (i.e., snaptime - min(snaptime))", y="Obytes/second") +
     guides(size=FALSE) +
