@@ -69,7 +69,7 @@ for(i in names){
     facet_wrap(~ NAME, ncol = 2) +
     theme_grey() +
     theme(text = element_text(size=20)) +
-    theme(panel.grid.minor = element_line(colour="white", size=0.5)) +
+    theme(panel.grid.minor = element_line(colour="black", size=0.5)) +
     labs(title=paste('Exp', eid, 'Obytes/second (i.e., obytes - previous obytes) vs. time')) +
     labs(x="Time (i.e., snaptime - min(snaptime))", y="Obytes/second") +
     guides(size=FALSE) +
