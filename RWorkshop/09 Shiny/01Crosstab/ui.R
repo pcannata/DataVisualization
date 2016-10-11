@@ -1,6 +1,7 @@
 #ui.R 
 
 library(shiny)
+require(shinydashboard)
 
 # Define UI for application that plots random distributions 
 shinyUI(pageWithSidebar(
