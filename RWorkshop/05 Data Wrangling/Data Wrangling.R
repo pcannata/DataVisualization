@@ -83,9 +83,9 @@ c(1,1:5) %>% cume_dist()
 # c(TRUE, TRUE, FALSE, FALSE, TRUE) %>% cumall()
 # c(FALSE, TRUE, FALSE, FALSE, TRUE) %>% cumany()
 # Now let's try them in the dplyr::mutate function
- dd <- diamonds %>% dplyr::mutate(price_percent = cume_dist(price)) %>% dplyr::arrange(desc(price_percent)) %>% tbl_df # Equivalent SQL: 
-# dplyr::select d.*, cume_dist() OVER (order by price) cume_dist from diamonds d order by 11 desc;
-# dplyr::select d.*, cume_dist() OVER (PARTITION BY cut order by price) cume_dist from (select * from diamonds where rownum < 100) d order by cut desc, 11 desc;
+ dd <- dplyr::sample_n(diamonds, 100) %>% dplyr::mutate(price_percent = cume_dist(price)) %>% dplyr::arrange(desc(price_percent)) %>% tbl_df # Equivalent SQL: 
+# select d.*, cume_dist() OVER (order by price) cume_dist from diamonds d order by 11 desc;
+# select d.*, cume_dist() OVER (PARTITION BY cut order by price) cume_dist from (select * from diamonds where rownum < 100) d order by cut desc, 11 desc;
 # Can also try rank(), last_value, nth_value
 
 bottom20_diamonds <- diamonds %>% dplyr::mutate(price_percent = cume_dist(price)) %>% dplyr::filter(price_percent <= .20) %>% dplyr::arrange(desc(price_percent)) %>% tbl_df
@@ -94,7 +94,7 @@ top20_diamonds <- diamonds %>% dplyr::mutate(price_percent = cume_dist(price)) %
 diamonds %>% dplyr::mutate(price_percent = cume_dist(price)) %>% dplyr::filter(price_percent <= .20 | price_percent >= .80) %>% ggplot(aes(x = price, y = carat, color = cut)) + geom_point()
 
 # summarize (summarise)
-diamonds %>% summarize(max_price = max(price)) # Equivalent SQL:select max(price) as max_price from diamonds;
+ds <- diamonds %>% summarize(max_price = max(price)) # Equivalent SQL:select max(price) as max_price from diamonds;
 diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n()) # Equivalent SQL:select avg(x) as avg, sum(x)+sum(y)+sum(z) as sum, count(*) as n from diamonds;
 # Useful Summary functions:
 # min(), max() Minimum and maximum values
@@ -109,8 +109,8 @@ diamonds %>% summarize(mean = mean(x), sum = sum(x,y,z), n = n()) # Equivalent S
 # n_distinct() The number of distinct values in a vector
 
 # group_by
-d <- diamonds %>% group_by(cut,color) %>% dplyr::summarise(n = n()) %>% dplyr::arrange(n) %>% tbl_df # Equivalent SQL: dplyr::select cut, color, count(*) n from diamonds group by cut, color order by n;
-diamonds %>% group_by(cut,color) %>% dplyr::summarise(mean = mean(x), sum = sum(x,y,z), n = n())
+d <- diamonds %>% group_by(cut) %>% dplyr::summarise(n = n()) %>% dplyr::arrange(n) %>% View # Equivalent SQL: dplyr::select cut, color, count(*) n from diamonds group by cut, color order by n;
+diamonds %>% group_by(cut,color) %>% dplyr::summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% View
 diamonds %>% group_by(cut,color) %>% dplyr::summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% ungroup %>% summarize(sum(n))
 
 diamonds %>% group_by(cut,color) %>% dplyr::summarise(mean = mean(x), sum = sum(x,y,z), n = n()) %>% dplyr::arrange(n)

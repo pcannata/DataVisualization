@@ -16,13 +16,13 @@ mdf
 require(ggplot2)
 #ggplot(mdf, aes(x=x, y=value, color=variable)) + geom_line() #This is a shorthand for the following lines, we will not be using this kind of shorthand in this class.
 
-ggplot() + 
+gather(df, variable, value, -x) %>% ggplot() + 
   #facet_wrap(~variable) +
   labs(title='Simple example from Excel', x="X Axis", y="Y Axis") +
   coord_cartesian() +
   theme_linedraw() +
   
-  layer(data=mdf, 
+  layer(, 
         geom="line", mapping=aes(x=x, y=value, color=variable),  
         position=position_identity(),
         stat="identity",

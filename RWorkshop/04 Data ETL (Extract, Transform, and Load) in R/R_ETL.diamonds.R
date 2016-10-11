@@ -1,10 +1,12 @@
 require(tidyr)
 require(dplyr)
 
+options(stringsAsFactors = FALSE)
+
 setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extract, Transform, and Load) in R/CSVs")
 file_path <- "Diamonds.csv"
 
-diamonds <- read.csv(file_path, stringsAsFactors = FALSE)
+diamonds <- read.csv(file_path)
 names(diamonds)
 
 df <- rename(diamonds, tbl = table) # table is a reserved word in Oracle so rename it to tbl.
