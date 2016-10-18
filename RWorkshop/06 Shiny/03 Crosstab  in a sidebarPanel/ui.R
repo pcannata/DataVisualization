@@ -3,7 +3,6 @@
 library(shiny)
 require(shinydashboard)
 
-# Define UI for application that plots random distributions 
 shinyUI(pageWithSidebar(
 
 # Application title

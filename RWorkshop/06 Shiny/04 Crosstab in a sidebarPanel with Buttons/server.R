@@ -13,7 +13,7 @@ shinyServer(function(input, output) {
       observeEvent(input$light, { rv$alpha <- 0.50 })
       observeEvent(input$dark, { rv$alpha <- 0.75 })
     
-      df <- eventReactive(input$clicks, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+      df <- eventReactive(input$clicks, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
             "select color, clarity, sum_price, round(sum_carat) as sum_carat, kpi as ratio, 
             case
             when kpi < "p1" then \\\'03 Low\\\'
@@ -26,8 +26,7 @@ shinyServer(function(input, output) {
             from diamonds
             group by color, clarity)
             order by clarity;"
-            ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_UTEid', PASS='orcl_UTEid', 
-                 MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value(), p2=KPI_Medium_Max_value()), verbose = TRUE)))
+            ')), httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value(), p2=KPI_Medium_Max_value()), verbose = TRUE)))
       })
 
       output$distPlot <- renderPlot({             

@@ -14,7 +14,7 @@ server <- function(input, output) {
   
   # observe responds to the print button
   # but not the slider
-  observeEvent(input$go, {
+  observeEvent(c(input$go,input$num) , {
     print(as.numeric(input$num))
   })
 }

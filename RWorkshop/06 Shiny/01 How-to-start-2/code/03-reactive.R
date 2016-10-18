@@ -15,6 +15,7 @@ server <- function(input, output) {
   data <- reactive({
     rnorm(input$num)
   })
+  print(class(data))
   
   output$hist <- renderPlot({
     hist(data())
