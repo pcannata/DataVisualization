@@ -18,9 +18,9 @@ shinyServer(function(input, output) {
   df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
   "select color, clarity, sum_price, round(sum_carat) as sum_carat, kpi as ratio, 
   case
-  when kpi < "p1" then \\\'03 Low\\\'
-  when kpi < "p2" then \\\'02 Medium\\\'
-  else \\\'01 High\\\'
+  when kpi < "p1" then \'03 Low\'
+  when kpi < "p2" then \'02 Medium\'
+  else \'01 High\'
   end kpi
   from (select color, clarity, 
   sum(price) as sum_price, sum(carat) as sum_carat, 
