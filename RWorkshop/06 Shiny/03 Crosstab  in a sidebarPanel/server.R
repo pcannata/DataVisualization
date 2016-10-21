@@ -43,7 +43,7 @@ shinyServer(function(input, output) {
               stat="identity", 
               #stat_params=list(), 
               geom="text",
-              geom_params=list(color="black"), 
+              params=list(color="black"), 
               position=position_identity()
         ) +
         layer(data=df, 
@@ -51,7 +51,7 @@ shinyServer(function(input, output) {
               stat="identity", 
               #stat_params=list(), 
               geom="tile",
-              geom_params=list(alpha=0.50), 
+              params=list(alpha=0.50), 
               position=position_identity()
         )
 

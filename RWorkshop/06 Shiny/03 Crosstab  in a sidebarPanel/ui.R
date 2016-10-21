@@ -21,7 +21,6 @@ headerPanel("Hello Shiny!"),
                 max = 5000, 
                 value = 5000)
   ),
-
 # Show a plot of the generated distribution
   mainPanel(
     plotOutput("distPlot")
