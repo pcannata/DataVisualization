@@ -38,18 +38,18 @@ shinyServer(function(input, output) {
                         # THe following statement is commented out because it doesn't seem to work properly.
                           AutoFill = list(columnDefs = list(list(enable = FALSE, targets = c(0, 1, -1, -2)), list(increment = TRUE, targets = c(3, 4)))),
                           Responsive = TRUE,
-                          FixedHeader = TRUE,
+                          FixedHeader = TRUE
                         # To get the functionality in the following 3 statements, uncomment the statement and the corresponding options statement below, 
                         # also comment the TableTools = TRUE statement and the last options statement.
                           # ColReorder = TRUE  
                           # ColVis = TRUE       
                           # FixedColumns = TRUE 
-                          TableTools = TRUE
+                          #TableTools = TRUE
                      ), 
             # options = list(order = list(list(1, 'asc'), list(3, 'desc')), dom='Rlfrtip')
             # options = list(order = list(list(1, 'asc'), list(3, 'desc')), dom='C<"clear">lfrtip')
             # options = list(dom = 't', scrollX = TRUE, scrollCollapse = TRUE)
-            options = list(dom = 'T<"clear">lfrtip', tableTools = list(sSwfPath = copySWF('www', pdf = TRUE)))
+            #options = list(dom = 'T<"clear">lfrtip', tableTools = list(sSwfPath = copySWF('www', pdf = TRUE)))
         )
       })
 })

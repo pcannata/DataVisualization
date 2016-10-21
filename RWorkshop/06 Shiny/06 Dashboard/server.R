@@ -42,17 +42,15 @@ shinyServer(function(input, output) {
                   layer(data=df1(), 
                         mapping=aes(x=COLOR, y=CLARITY, label=SUM_PRICE), 
                         stat="identity", 
-                        stat_params=list(), 
                         geom="text",
-                        geom_params=list(colour="black"), 
+                        params=list(colour="black"), 
                         position=position_identity()
                   ) +
                   layer(data=df1(), 
                         mapping=aes(x=COLOR, y=CLARITY, fill=KPI), 
                         stat="identity", 
-                        stat_params=list(), 
                         geom="tile",
-                        geom_params=list(alpha=rv$alpha), 
+                        params=list(alpha=rv$alpha), 
                         position=position_identity()
                   )
             plot
