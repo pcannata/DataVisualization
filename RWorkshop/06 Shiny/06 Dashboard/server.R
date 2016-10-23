@@ -62,14 +62,14 @@ shinyServer(function(input, output) {
 
 # Begin code for Second Tab:
 
-      df2 <- eventReactive(input$clicks2, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+      df2 <- eventReactive(input$clicks2, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
             "select color, clarity, avg_price, avg(avg_price) 
              OVER (PARTITION BY clarity ) as window_avg_price
              from (select color, clarity, avg(price) avg_price
                    from diamonds
                    group by color, clarity)
             order by clarity;"
-            ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_UTEid', PASS='orcl_UTEid', 
+            ')), httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', 
             MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))
       })
 
@@ -84,30 +84,30 @@ shinyServer(function(input, output) {
               layer(data=df2(), 
                     mapping=aes(x=COLOR, y=AVG_PRICE), 
                     stat="identity", 
-                    stat_params=list(), 
                     geom="bar",
-                    geom_params=list(colour="blue"), 
+                    params=list(colour="blue"), 
                     position=position_identity()
               ) + coord_flip() +
               layer(data=df2(), 
                     mapping=aes(x=COLOR, y=AVG_PRICE, label=round(AVG_PRICE - WINDOW_AVG_PRICE)), 
-                    stat="identity", 
-                    stat_params=list(), 
+                    stat="identity",
                     geom="text",
-                    geom_params=list(colour="black", hjust=-1), 
+                    params=list(colour="black", hjust=-1), 
                     position=position_identity()
               ) +
               layer(data=df2(), 
                     mapping=aes(yintercept = WINDOW_AVG_PRICE), 
+                    stat="identity", 
                     geom="hline",
-                    geom_params=list(colour="red")
+                    params=list(colour="red"),
+                    position=position_identity()
               )
               plot1
       })
 
 # Begin code for Third Tab:
 
-      df3 <- eventReactive(input$clicks3, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+      df3 <- eventReactive(input$clicks3, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
             """select region || \\\' \\\' || \\\'Sales\\\' as measure_names, sum(sales) as measure_values from SUPERSTORE_SALES_ORDERS
             where country_region = \\\'United States of America\\\'
             group by region
@@ -115,7 +115,7 @@ shinyServer(function(input, output) {
             select market || \\\' \\\' || \\\'Coffee_Sales\\\' as measure_names, sum(coffee_sales) as measure_values from COFFEE_CHAIN
             group by market
             order by 1;"""
-            ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_UTEid', PASS='orcl_UTEid', 
+            ')), httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', 
             MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))
       })
 
@@ -130,17 +130,15 @@ shinyServer(function(input, output) {
               layer(data=df3(), 
                     mapping=aes(x=MEASURE_NAMES, y=MEASURE_VALUES), 
                     stat="identity", 
-                    stat_params=list(), 
                     geom="bar",
-                    geom_params=list(colour="blue"), 
+                    params=list(colour="blue"), 
                     position=position_identity()
               ) + coord_flip() +
               layer(data=df3(), 
                     mapping=aes(x=MEASURE_NAMES, y=MEASURE_VALUES, label=round(MEASURE_VALUES)), 
-                    stat="identity", 
-                    stat_params=list(), 
+                    stat="identity",
                     geom="text",
-                    geom_params=list(colour="black", hjust=-0.5), 
+                    params=list(colour="black", hjust=-0.5), 
                     position=position_identity()
               )
               plot3

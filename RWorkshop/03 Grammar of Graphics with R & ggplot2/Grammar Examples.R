@@ -25,7 +25,7 @@ theme(
     axis.title.y=element_text(color="cadetblue", vjust=0.35)
   ) +
 layer(data=diamonds,  
-  geom="point", #geom_params=list(),
+  geom="point", params=list(),
   mapping=aes(x=cut, y=price, color=color), 
   stat="identity", #stat_params=list(), 
   position=position_identity()
@@ -33,23 +33,23 @@ layer(data=diamonds,
   #position=position_dodge()
 ) + 
 layer(data=diamonds,  
-  geom="boxplot", #geom_params=list(color="red", fill="red", alpha=0), 
+  geom="boxplot", params=list(color="red", fill="red", alpha=0), 
   mapping=aes(x=cut, y=price), 
   stat="boxplot",  #stat_params=list(),
   position=position_identity()
 ) + layer(
   data=diamonds,
-  geom="smooth", #geom_params=list(),
+  geom="smooth", params=list(),
   mapping=aes(x=cut, y=price),
   stat="smooth", #stat_params=list(),
   position=position_identity()
 ) +
 layer(
   data=diamonds,
-  geom="bar", #geom_params=list(),
+  geom="bar", params=list(),
   mapping=aes(x=color),,
   #stat="bin",
   stat="count",
-  #stat_params=list(),
   position=position_identity()
 )
+

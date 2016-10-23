@@ -51,7 +51,7 @@ ggplot_func <- function(df,
       theme(panel.background = element_rect(fill=Background, colour=Background)) +
       layer(data=df,  
             geom="point",
-            #geom_params=list(), 
+            params=list(), 
             # None of these worked for the following non-commented line:
             #mapping=aes(x = carat, y = price, color = Legend),
             #mapping=aes(x = carat, y = price, aes_string(color = Legend)),
@@ -59,8 +59,7 @@ ggplot_func <- function(df,
             # See http://stackoverflow.com/questions/32503843/using-a-function-parameter-in-ggplot-mapping-aes
             # I fixed it by doing the names(df)[names(df) == Legend] <- 'Legend' above.
             mapping=aes(x = carat, y = price, color = Legend), 
-            stat="identity", 
-            #stat_params=list(),
+            stat="identity",
             #position=position_identity()
             position=position_jitter(width=0.3, height=0)
             #position=position_dodge()

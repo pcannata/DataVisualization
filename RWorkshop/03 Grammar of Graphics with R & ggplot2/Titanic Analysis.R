@@ -19,9 +19,8 @@ ggplot() +
   layer(data=df, 
         mapping=aes(x=as.numeric(as.character(AGE)), y=as.numeric(as.character(FARE)), color=SEX),  
         geom="point",
-        #geom_params=list(), 
+        params=list(), 
         stat="identity", 
-        #stat_params=list(),
         #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
@@ -37,9 +36,8 @@ ggplot() +
   layer(data=df, 
         mapping=aes(x=SEX, y=as.numeric(as.character(FARE)), color=as.character(SURVIVED)),  
         geom="point",
-        #geom_params=list(),
-        stat="identity", 
-        #stat_params=list(), 
+        params=list(),
+        stat="identity",
         #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )

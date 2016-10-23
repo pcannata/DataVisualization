@@ -84,21 +84,20 @@ shinyServer(function(input, output) {
                     stat="identity", 
                     stat_params=list(), 
                     geom="bar",
-                    geom_params=list(colour="blue"), 
+                    params=list(colour="blue"), 
                     position=position_identity()
               ) + coord_flip() +
               layer(data=df2(), 
                     mapping=aes(x=COLOR, y=AVG_PRICE, label=round(AVG_PRICE - WINDOW_AVG_PRICE)), 
                     stat="identity", 
-                    stat_params=list(), 
                     geom="text",
-                    geom_params=list(colour="black", hjust=-1), 
+                    params=list(colour="black", hjust=-1), 
                     position=position_identity()
               ) +
               layer(data=df2(), 
                     mapping=aes(yintercept = WINDOW_AVG_PRICE), 
                     geom="hline",
-                    geom_params=list(colour="red")
+                    params=list(colour="red")
               )
               plot1
       })
@@ -130,15 +129,14 @@ shinyServer(function(input, output) {
                     stat="identity", 
                     stat_params=list(), 
                     geom="bar",
-                    geom_params=list(colour="blue"), 
+                    params=list(colour="blue"), 
                     position=position_identity()
               ) + coord_flip() +
               layer(data=df3(), 
                     mapping=aes(x=MEASURE_NAMES, y=MEASURE_VALUES, label=round(MEASURE_VALUES)), 
-                    stat="identity", 
-                    stat_params=list(), 
+                    stat="identity",
                     geom="text",
-                    geom_params=list(colour="black", hjust=-0.5), 
+                    params=list(colour="black", hjust=-0.5), 
                     position=position_identity()
               )
               plot3

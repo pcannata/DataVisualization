@@ -26,10 +26,9 @@ ggplot() +
   
   layer(data=df,  
         geom = "line",
-        # geom_params = list(size = 2),
+        params = list(size = 2),
         mapping=aes(x=SNAPTIME, y=OBYTES, color=NAME, size='1'),
         stat="identity", 
-        #stat_params=list(),
         position=position_identity()
   )
 
@@ -76,10 +75,9 @@ for(i in names){
     
     layer(data=df4,  
           geom = "line",
-          # geom_params = list(size = 2),
+          params = list(size = 2),
           mapping=aes(x=time, y=throughput, color=NAME, size='1'),
           stat="identity", 
-          #stat_params=list(),
           position=position_identity()
     )
   print(plot, vp = viewport(layout.pos.row = plotNum, layout.pos.col = 1)) 

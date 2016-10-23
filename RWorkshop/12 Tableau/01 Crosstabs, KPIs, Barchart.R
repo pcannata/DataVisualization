@@ -9,7 +9,7 @@ require(dplyr)
 KPI_Low_Max_value = 4750     
 KPI_Medium_Max_value = 5000
 
-df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
 "select color, clarity, sum_price, round(sum_carat) as sum_carat, kpi as ratio, 
 case
 when kpi < "p1" then \\\'03 Low\\\'
@@ -22,7 +22,7 @@ from (select color, clarity,
    from diamonds
    group by color, clarity)
 order by clarity;"
-')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_UTEid', PASS='orcl_UTEid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value, p2=KPI_Medium_Max_value), verbose = TRUE))); View(df)
+')), httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value, p2=KPI_Medium_Max_value), verbose = TRUE))); View(df)
 
 # df <- diamonds %>% group_by(color, clarity) %>% summarize(sum_price = sum(price), sum_carat = sum(carat)) %>% mutate(ratio = sum_price / sum_carat) %>% mutate(kpi = ifelse(ratio <= KPI_Low_Max_value, '03 Low', ifelse(ratio <= KPI_Medium_Max_value, '02 Medium', '01 High'))) %>% rename(COLOR=color, CLARITY=clarity, SUM_PRICE=sum_price, SUM_CARAT=sum_carat, RATIO=ratio, KPI=kpi)
 
@@ -36,40 +36,36 @@ ggplot() +
   labs(x=paste("COLOR"), y=paste("CLARITY")) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=CLARITY, label=SUM_PRICE), 
-        stat="identity", 
-        stat_params=list(), 
+        stat="identity",  
         geom="text",
-        geom_params=list(colour="black"), 
+        params=list(colour="black"), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=CLARITY, label=SUM_CARAT), 
-        stat="identity", 
-        stat_params=list(), 
+        stat="identity",  
         geom="text",
-        geom_params=list(colour="black", vjust=2), 
+        params=list(colour="black", vjust=2), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=CLARITY, label=round(RATIO, 2)), 
         stat="identity", 
-        stat_params=list(), 
         geom="text",
-        geom_params=list(colour="black", vjust=4), 
+        params=list(colour="black", vjust=4), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=CLARITY, fill=KPI), 
-        stat="identity", 
-        stat_params=list(), 
+        stat="identity",  
         geom="tile",
-        geom_params=list(alpha=0.50), 
+        params=list(alpha=0.50), 
         position=position_identity()
   )
 
 # The following is equivalent to Windowing Story 5 Sheet 4 in "Crosstabs, KPIs, Barchart.twb"
 
-df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'oraclerest.cs.utexas.edu:5001/rest/native/?query=
 "select color, clarity, avg_price, 
 avg(avg_price) 
 OVER (PARTITION BY clarity ) as window_avg_price
@@ -77,7 +73,7 @@ from (select color, clarity, avg(price) avg_price
    from diamonds
    group by color, clarity)
 order by clarity;"
-')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_UTEid', PASS='orcl_UTEid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); View(df)
+')), httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_UTEid', PASS='orcl_uteid', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE))); View(df)
 
 # df <- diamonds %>% group_by(color, clarity) %>% summarize(AVG_PRICE = mean(price)) %>% rename(COLOR=color, CLARITY=clarity)
 # df1 <- df %>% ungroup %>% group_by(CLARITY) %>% summarize(WINDOW_AVG_PRICE=mean(AVG_PRICE))
@@ -95,37 +91,35 @@ ggplot() +
   layer(data=df, 
         mapping=aes(x=COLOR, y=AVG_PRICE), 
         stat="identity", 
-        stat_params=list(), 
         geom="bar",
-        geom_params=list(colour="blue"), 
+        params=list(colour="blue"), 
         position=position_identity()
   ) + coord_flip() +
   layer(data=df, 
         mapping=aes(x=COLOR, y=AVG_PRICE, label=round(AVG_PRICE)), 
         stat="identity", 
-        stat_params=list(), 
         geom="text",
-        geom_params=list(colour="black", hjust=-0.5), 
+        params=list(colour="black", hjust=-0.5), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=AVG_PRICE, label=round(WINDOW_AVG_PRICE)), 
         stat="identity", 
-        stat_params=list(), 
         geom="text",
-        geom_params=list(colour="black", hjust=-2), 
+        params=list(colour="black", hjust=-2), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(x=COLOR, y=AVG_PRICE, label=round(AVG_PRICE - WINDOW_AVG_PRICE)), 
         stat="identity", 
-        stat_params=list(), 
         geom="text",
-        geom_params=list(colour="black", hjust=-5), 
+        params=list(colour="black", hjust=-5), 
         position=position_identity()
   ) +
   layer(data=df, 
         mapping=aes(yintercept = WINDOW_AVG_PRICE), 
         geom="hline",
-        geom_params=list(colour="red")
+        params=list(colour="red"),
+        stat="identity",   
+        position=position_identity()
   ) 
