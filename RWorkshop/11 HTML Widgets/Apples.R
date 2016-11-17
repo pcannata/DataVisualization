@@ -29,7 +29,6 @@ server <- shinyServer(function(input, output) {
   data <- read.csv("www/cleanApples.csv") %>% dplyr::filter(Quantity > 10) 
   View(data)
   print(names(data))
-  # xts(data$Price, as.Date(data$date, format = "%m/%d/%y")) %>% dygraph()
   #the first graph which is price over time (input: variety, count, date)
   output$applesgraph <- renderDygraph({
     if (is.null(input$productname) || is.null(input$counts)) return(NULL)

@@ -2,9 +2,10 @@ require(tidyr)
 require(dplyr)
 require(ggplot2)
 
-setwd("/Users/pcannata/Mine/UT/cs329e Data Visualization/web-content/Class Notes/_04 Advanced Tableau/Data")
+#setwd("/Users/pcannata/Mine/UT/cs329e Data Visualization/web-content/Class Notes/_04 Advanced Tableau/Data")
+setwd("~/Mine/UT/GitRepositories/DataVisualization/RWorkshop/04 Data ETL (Extract, Transform, and Load) in R/CSVs")
 
-file_path <- "Superstore Sales Orders.csv"
+file_path <- "Super Store Orders.csv"
 # file_path <- "Superstore Sales Returns.csv"
 
 df <- read.csv(file_path, stringsAsFactors = FALSE)
@@ -14,7 +15,7 @@ names(df) <- gsub("\\.+", "_", names(df))
 
 str(df) # Uncomment this and  run just the lines to here to get column types to use for getting the list of measures.
 
-measures <- c("Row_ID", "Order_ID", "Discount", "Unit_Price", "Order_Quantity", "Sales" , "Profit", "Shipping_Cost", "Product_Base_Margin", "Customer_ID")
+measures <- c("Row_Id", "Order_Id", "Discount", "Unit_Price", "Order_Quantity", "Sales" , "Profit", "Shipping_Cost", "Product_Base_Margin", "Customer_Id")
 # measures <- c("Order_ID")
 #measures <- NA # Do this if there are no measures.
 
@@ -48,6 +49,7 @@ df$Ship_Date  <- gsub(" [0-9]+:.*", "", gsub(" UTC", "", mdy(as.character(df$Shi
 # Get rid of all characters in measures except for numbers, the - sign, and period.dimensions
 if( length(measures) > 1 || ! is.na(measures)) {
   for(m in measures) {
+    print(m)
     df[m] <- data.frame(lapply(df[m], gsub, pattern="[^--.0-9]",replacement= ""))
   }
 }
